@@ -1,0 +1,1111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>プログラミング on 或曰</title><link>https://blog2.issei.org/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link><description>Recent content in プログラミング on 或曰</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 22 Dec 2020 11:44:04 +0100</lastBuildDate><atom:link href="https://blog2.issei.org/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>Re: ソースコード読みの技術</title><link>https://blog2.issei.org/2020/12/22/source-code-reading/</link><pubDate>Tue, 22 Dec 2020 11:44:04 +0100</pubDate><guid>https://blog2.issei.org/2020/12/22/source-code-reading/</guid><description>&lt;p>先日の &lt;a href="https://blog2.issei.org/source-code-reading/">ソースコード読みの技術&lt;/a> に対するコメント。&lt;/p>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">お、Androidのソースの読み方だ！と思って読み始めた開幕が、「まずはそのコードを書いた本人に聞こう」なのはどうなのか(^_^;) &lt;a href="https://t.co/X60mZtEfSj">https://t.co/X60mZtEfSj&lt;/a>&lt;/p>&amp;mdash; karino2@平民階級 (@karino2012) &lt;a href="https://twitter.com/karino2012/status/1338844166885806088?ref_src=twsrc%5Etfw">December 15, 2020&lt;/a>&lt;/blockquote>
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;p>確かに。&lt;/p>
+&lt;p>私が書いた内容はオープンソースのコードを一人で読むのではなく、
+仕事で大規模コードベースのプロジェクトに関わる時に、
+いかに短時間でキャッチアップしてデザイン＆コーディングできるようになるか、
+という話ですね。&lt;/p>
+&lt;p>私は自力でコードを理解しようとしすぎていた時期があって、
+後から考えると、
+さっさと人に聞いた方が時間を節約できたなという反省があります。&lt;/p>
+&lt;p>&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">logcat挟んだりデバッガで追うというのも自前ビルドした環境を持ってるという前提でなかなかスタート地点からレベル高いですなぁ。&lt;/p>&amp;mdash; karino2@平民階級 (@karino2012) &lt;a href="https://twitter.com/karino2012/status/1338844447325351937?ref_src=twsrc%5Etfw">December 15, 2020&lt;/a>&lt;/blockquote>
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">まぁAndroidは一例で自社の大規模コードベースを読むという話題と受け取ればそれなりにターゲットはいるのかもしれないが。&lt;/p>&amp;mdash; karino2@平民階級 (@karino2012) &lt;a href="https://twitter.com/karino2012/status/1338844734253461509?ref_src=twsrc%5Etfw">December 15, 2020&lt;/a>&lt;/blockquote>
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">（悪い他意の無い）大企業のお仕事コード読みという感じですな。こういうスキルもってる人は凄く希少な気はする。&lt;/p>&amp;mdash; karino2@平民階級 (@karino2012) &lt;a href="https://twitter.com/karino2012/status/1338845438934278145?ref_src=twsrc%5Etfw">December 15, 2020&lt;/a>&lt;/blockquote>
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;/p>
+&lt;p>私は以前はマップの開発をやっていたこともありますが、
+それと比べても Android OS は大量のコードを読む必要があります。&lt;/p>
+&lt;p>マップだと複数のシステムやデータ生成パイプラインが絡み、
+システムの規模も大きく明らかに複雑なのですが、
+わりとシステムやコードの切れ目がはっきりしていて、
+その先はブラックボックスとして扱えることが多かった。
+したがって、自分の仕事をする上で読んで理解しないといけないコードは少ない。&lt;/p>
+&lt;p>Android OS は境界が緩やかで、
+かつ一つの変更が影響を与える範囲が広いので、
+多く深く理解する必要があります。
+代わりに、
+「この先は相手のチームにお願いするしかない」という場面は少なくて、
+その気になれば自分で必要な変更をできてしまう。&lt;/p>
+&lt;blockquote class="twitter-tweet">&lt;p lang="ja" dir="ltr">一般論として、コード読みをする時にどれだけ環境的な物に力を入れるかは腕が出る所な気はする。&lt;/p>&amp;mdash; karino2@平民階級 (@karino2012) &lt;a href="https://twitter.com/karino2012/status/1338846132319866886?ref_src=twsrc%5Etfw">December 15, 2020&lt;/a>&lt;/blockquote>
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8">&lt;/script>
+&lt;p>ツールや環境整備は凝りだすときりがないし、
+面倒な作業から逃避するときの良い口実になりがちなので、
+やりすぎも良くないです。&lt;/p></description></item><item><title>ソースコード読みの技術</title><link>https://blog2.issei.org/2020/12/11/source-code-reading/</link><pubDate>Fri, 11 Dec 2020 21:46:13 +0100</pubDate><guid>https://blog2.issei.org/2020/12/11/source-code-reading/</guid><description>&lt;p>仕事でプログラムを描いていると、
+他人が書いたソースコードを読んで内容を理解する必要に迫られます。
+ちょうど一つ読み終わってデザインドキュメントを書いたところなので、
+今現在の私のソースコードの読み方をメモ。&lt;/p>
+&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>規模が小さいコードならざっと全体に目を通したり、
+とりあえず適当に変更して様子を見ながら理解することもできるけれど、
+これが Android のような巨大なコードベースとなると全部を読んで理解するのは物理的に無理なので、
+戦略的に取り組む必要がある。&lt;/p>
+&lt;h2 id="取っ掛かりをつかむ">取っ掛かりをつかむ&lt;/h2>
+&lt;p>最初に必要なのは、
+どのあたりのコードを読めば良いのかの当たりをつけること。&lt;/p>
+&lt;p>過去に自分が書いたコードだったり、
+詳細は知らなくてもアーキテクチャの概要を把握している場合には、
+深く調査しなくても関係しそうなクラスや関数の目星がつくことがある。
+あとはデバッグ出力を有効にして、
+ざっと眺めてみるとヒントになることも。&lt;/p>
+&lt;p>よく分からない場合には、
+そのコードを書いた本人に聞く。
+この段階ではコードの詳細を把握できていないので、
+自分がやりたいことを簡単にまとめて、
+関係しそうな人に聞いてみる。
+問い合わせ先に顔が広いマネージャーも含めておくと、
+最初に連絡をとった相手が間違っていた場合でも適切な相手にフォワードしてくれるので、
+話が進みやすい。&lt;/p>
+&lt;p>運が良ければデザインドキュメントが出てきて、
+設計の背景などを含めて概要を把握できる。
+必要に応じてコードを理解している人間にホワイトボードを使って概要を解説してもらう。&lt;/p>
+&lt;p>この際、
+漠然と「解説してほしい」とリクエストすると相手も困るので、
+自分がやりたいこと（実装したい新機能）などを簡単に伝えて、
+それに関わる部分を解説してもらう。
+あらかじめ１、２ページにまとめた文書 (one pager) を作っておくと、
+別の人に話を聞きに行ったり、
+逆に後日別のプロジェクトの人が話を聞きに来た場合に使いまわしが効いて便利。&lt;/p>
+&lt;p>ホワイトボードセッションでは、&lt;/p>
+&lt;ul>
+&lt;li>略語&lt;/li>
+&lt;li>ログの読み方&lt;/li>
+&lt;li>デバッグ機能があれば、それを有効にする方法&lt;/li>
+&lt;li>関連するコンポーネントとそのオーナー（疑問があった場合の連絡先）&lt;/li>
+&lt;li>現在進行中のプロジェクトで影響がありそうなもの&lt;/li>
+&lt;/ul>
+&lt;p>についても聞き取っておく。&lt;/p>
+&lt;p>自分がやろうと思っていることが既存のプロジェクトとバッティングしていたり、
+そうでないにしても予定されている大規模なリファクタリングに巻き込まれたりすると、
+大きな時間のロスにつながる。&lt;/p>
+&lt;h2 id="静的構造を把握する">静的構造を把握する&lt;/h2>
+&lt;p>プログラムは実行してみないと分からない動的な側面と、
+コードを読むだけで分かる静的な側面がある。&lt;/p>
+&lt;p>まずは第三者の手助けなしでも進めやすい、
+静的な側面から取り組む。&lt;/p>
+&lt;p>複数のシステムで構成されるシステムの場合、
+まずは構成要素を洗い出して、
+どのシステムが繋がっているのかを図にする。
+構成要素は Web だとサーバーやフロントエンドになり、
+Android OS だと Binder で通信するプロセスが構成要素になる。&lt;/p>
+&lt;p>次に個々のシステム内部を調査。
+Java のようなオブジェクト指向プログラミング言語の場合には、
+主要なインターフェースを洗い出して、
+クラスの継承関係やどのクラスがインターフェースを実装しているかを把握するために図を書くと良い。&lt;/p>
+&lt;p>私は UML のクラス図の記法を参考にしているけれど、
+細かいところは適当。
+継承関係と、
+クラス間のつながり、
+あとはインスタンスの寿命管理を行っているのがどれかが明確になれば大体 OK。&lt;/p>
+&lt;p>Java だと無名クラスやラムダ式もあるので、
+陽にクラス名が出ていなくても重要なコードだったり、
+実は他のクラスにつながる経路が存在したりする。
+どこまで細かく描くかはコードを読んだり、
+次の動的振る舞いの調査をしながら決める。&lt;/p>
+&lt;p>この段階でわからないことがあれば、
+メモにまとめておく。&lt;/p>
+&lt;h2 id="動的振る舞いを追跡する">動的振る舞いを追跡する&lt;/h2>
+&lt;p>次に実際にプログラムを実行したときに、
+どのコードパスを通るのかを調べる。&lt;/p>
+&lt;p>まずは統合開発環境のエディタや &lt;a href="https://developers.google.com/code-search">Code Search&lt;/a> などを使って、
+主要な関数呼び出しを追ってみる。
+ただしコードを読むだけだと、&lt;/p>
+&lt;ul>
+&lt;li>条件分岐がある場合に実際にはどのパスを通っているのか&lt;/li>
+&lt;li>インターフェースや基底クラス経由で呼び出している場合、実際にはどのクラスの関数が呼ばれているのか&lt;/li>
+&lt;/ul>
+&lt;p>が分からない事があるので、
+そのときにはデバッガを使ったりログメッセージを各所に仕込んで調べる。
+Android だと logcat を関連しそうな場所に大量に埋め込んでログを取るのが楽。
+場合によっては、
+ログにスタックトレースを含めるのも良い。&lt;/p>
+&lt;p>ただし logcat だと「ここは関係ないだろう」と logcat を埋め込まなかった場所はすっぽり抜け落ちてしまうので注意。
+デバッガのステップ実行と組み合わせて使う。
+ただしログを出力しすぎると重要な情報が埋まってしまうし、
+足りないと見落とすのでバランスが難しいが、
+そこは経験と勘でどうにかする。&lt;/p>
+&lt;p>処理が特に複雑だったり依存関係がありそうな場合には、
+関数の呼び出しシーケンスをクラス図に書き込んだり、
+シーケンス図を描いてみる。&lt;/p>
+&lt;p>ある程度理解が深まったところで、
+疑問をまとめて再質問する。
+場合によっては深堀りする部分を決めて、
+もう一度ホワイトボードセッションを開いても良い。&lt;/p>
+&lt;h3 id="android-os-解析のためのツール">Android OS 解析のためのツール&lt;/h3>
+&lt;p>動的振る舞いの追跡には、
+システム固有の知識やツールが有用。
+多少時間がかかっても最初に存在するツールを調べて、
+使い方を学んでおいたほうが良い。&lt;/p>
+&lt;p>すでにツールを使っている人や現在メンテナンスしている人に時間をとってもらって、
+隣りに座って一緒に画面を見ながら教えてもらうと早い。
+簡単なバグのデバッグや小さな機能拡張など、
+現実のタスクを行いながらツールを使ってみる。
+漫然と説明を聞いていると眠くなる。&lt;/p>
+&lt;p>Android OS の場合には、次の２点がコードを追うのを難しくしている。&lt;/p>
+&lt;ol>
+&lt;li>Binder (IPC) 呼び出し&lt;/li>
+&lt;li>Handler によるメッセージ通信&lt;/li>
+&lt;/ol>
+&lt;p>これが間に挟まるとスタックトレースが取れないので、
+コードを読むしかない。&lt;/p>
+&lt;p>Android OS で特に私が関わっている WindowManager まわりだと、
+&lt;a href="https://source.android.com/devices/graphics/tracing-win-transitions">TRracing Window Transitions&lt;/a> にある Winscope や、
+&lt;a href="https://developer.android.com/topic/performance/tracing">system tracing&lt;/a> が役に立つこともある。&lt;/p>
+&lt;h2 id="個人からチームへ">個人からチームへ&lt;/h2>
+&lt;p>足がかりを築いたら、
+デザインドキュメントのレビューやコードレビューに参加することで、
+継続的に知識を更新する。
+こうすることで徐々に見通しがつくコードが増えていく。&lt;/p>
+&lt;p>またチームで知識を共有するために、
+定期的にスタンドアップミーティングやミニテックトークを開催するのも有効。&lt;/p>
+&lt;p>チームの規模が小さいうちはスタンドアップミーティングで質問したり、
+質問があるときにアドホックにホワイトボードセッションを開催するので十分。
+形式張らないほうがうまくいく。&lt;/p>
+&lt;p>ある程度チームが大きくなってきたら持ち回りで発表することにして、
+プレゼンターは簡単な資料を用意する。
+聴衆が増えるにつれて各人の理解度合いや興味が拡散していくので、
+技術的に深堀りしたい場合には少人数で行い、
+人数が多い場合にはアーキテクチャや技術的背景といった俯瞰的なテーマをとりあげる。
+経験が浅いエンジニアには、
+最初に何度か他のエンジニアが発表するのを見せてからプレゼンターを割り振る。
+またテーマの決め方や資料の構成に関して手助けと助言を行う。&lt;/p>
+&lt;p>自分が他のオフィスに出張する際には、
+相手オフィスのエンジニアに依頼してテックトークを行う手はずを整えてもらう。
+逆に誰かが自分のオフィスに出張してくる場合には、
+テックトークを手配する。
+こういう時に顔をつないでおくと、
+後で質問する時に話が通りやすい。&lt;/p>
+&lt;p>また新しく人がチームに加わるタイミングで、
+新規メンバー向けの集中講義を行う。
+すでにいるチームメンバーが自分の担当領域についてホワイトボードセッションを行い、
+加わった人間が短時間でキャッチアップできるようにする。
+すでにチームにいるメンバーでも、
+他のメンバーが関わっているプロジェクトはよく分かってないこともあるので、
+この機を使ってチーム全体の底上げを図るのも良い。&lt;/p></description></item><item><title>ペンシルパズル BINOXXO ソルバー</title><link>https://blog2.issei.org/2020/11/17/binoxxo_solver/</link><pubDate>Tue, 17 Nov 2020 18:16:08 +0100</pubDate><guid>https://blog2.issei.org/2020/11/17/binoxxo_solver/</guid><description>&lt;p>&lt;a href="https://blog2.issei.org/2020/09/01/binoxxo.html">ペンシルパズル BINOXXO&lt;/a> を
+&lt;a href="https://github.com/isseis/binoxxo-solver/blob/master/binoxxo_solver.py">プログラムで解いて&lt;/a> みました。&lt;/p>
+&lt;h2 id="アルゴリズム人間用">アルゴリズム（人間用）&lt;/h2>
+&lt;p>盤面を次のルールに従って書き換えていくと、
+問題が解けます。&lt;/p>
+&lt;h3 id="条件１ならびにが隣り合うのは2つまで">条件１：◯ならびに×が隣り合うのは2つまで&lt;/h3>
+&lt;ol>
+&lt;li>空欄を挟んで同じ記号がある場合に、間の空欄を反対の記号で埋める
+&lt;ul>
+&lt;li>O_O → O&lt;strong>X&lt;/strong>O&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>同じ記号が連続している場合に、その両端を反対の記号で埋める&lt;br>
+&lt;ul>
+&lt;li>OO_ → OO&lt;strong>X&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>同一行（列）に同じ記号が４つ使われている場合に、
+その記号を置くと逆の記号が３つ連続するマスを探し、
+そこに逆の記号を置く。&lt;br>
+&lt;ul>
+&lt;li>（Xがすでに4つ使われていると想定して）&lt;br>
+__OX_ → __OX&lt;strong>O&lt;/strong> / _O_X_ → _O_X&lt;strong>O&lt;/strong> / O__X_ → O__X&lt;strong>O&lt;/strong>&lt;br>
+最後のマスにXを置くと、最初の３マスがOOOとなってしまう。&lt;/li>
+&lt;li>（Xがすでに4つ使われていると想定して）&lt;br>
+____ → &lt;strong>O&lt;/strong>__&lt;strong>O&lt;/strong>&lt;br>
+最初もしくは最後のマスにXを置くと、残りの３マスがOOOとなってしまう。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>同一行（列）に同じ記号が３つ使われている場合に、
+４つ目を置くと残りのマスで逆の記号が３つ並んでしまうマスを探し、
+そこに逆の記号を置く。
+&lt;ul>
+&lt;li>X__X__O__X → X&lt;strong>OO&lt;/strong>X__O__X&lt;br>
+最初の空欄二ついずれかにXを置くと、残りのXが１つに対して残りのマスが __O__ となる。
+したがって __O もしくは O__ のいずれかが OOO となってしまう。&lt;/li>
+&lt;li>XO_____OXX → XO__&lt;strong>O&lt;/strong>__OXX&lt;br>
+空欄の中央に X を置くと、残りのXが一つに対して残りのマスが O__X__O となる。
+したがってXの左の O__ もしくは右の __O いずれかが OOO となる。&lt;/li>
+&lt;li>X______OXX → X&lt;strong>O&lt;/strong>_____OXX&lt;br>
+最初の空欄にXを置くと、残りのXが一つに対して残りのマスが _____O となる。
+Xを残りのどこに置いてもOが３連続になる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="条件２各列行には同数のならびにが入る">条件２：各列・行には同数の○ならびに×が入る&lt;/h3>
+&lt;ol>
+&lt;li>同一行（列）に同じ記号が５つ使われている場合に、空欄を逆の記号で埋める（条件２）&lt;br>
+&lt;ul>
+&lt;li>OOXOXOXXO_ → OOXOXOXXO&lt;strong>X&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="条件３すべての行列は異なる並びになる">条件３：すべての行・列は異なる並びになる&lt;/h3>
+&lt;ol>
+&lt;li>同一行（列）に同じ記号がすでに５つ配置されている行（列）に対して、
+その記号が同じ位置に４つ配置されている行（列）Lがある場合。
+Lの残りの１つの位置には、反対の記号を配置する（条件３）&lt;br>
+&lt;ul>
+&lt;li>（他にOOXOXXOXOXという行がある場合） OOX___OXOX → OOX&lt;strong>X&lt;/strong>__OXOX&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="アルゴリズムコンピューター用">アルゴリズム（コンピューター用）&lt;/h2>
+&lt;p>コンピューターに解かせる場合には、
+条件１の３，４を細かく場合分けせず、
+力づくで解かせるほうが簡単です。&lt;/p>
+&lt;p>まず行（列）の現在の状況が与えられると、
+その行で使える残りのXとOの数が分かります。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>行の状況&lt;/th>
+&lt;th style="text-align:right">残り X&lt;/th>
+&lt;th style="text-align:right">残り O&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>X__X__O__X&lt;/td>
+&lt;td style="text-align:right">2&lt;/td>
+&lt;td style="text-align:right">4&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>これで作れる組み合わせを列挙すると、
+次のようになります。
+人間には面倒ですが、
+コンピューターなら全パターン列挙は &lt;a href="https://github.com/isseis/binoxxo-solver/blob/a39874a9cd262138119af75720e572ff604f923d/binoxxo_solver.py#L177">一瞬&lt;/a> です。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>行&lt;/th>
+&lt;th style="text-align:center">条件１を満たすか&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>XXXXOOOOOX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XXOXXOOOOX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XXOXOXOOOX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XXOXOOOXOX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XXOXOOOOXX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOXXXOOOOX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOXXOXOOOX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOXXOOOXOX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOXXOOOOXX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOOXXXOOOX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOOXXOOXOX&lt;/td>
+&lt;td style="text-align:center">OK&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOOXXOOOXX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOOXOXOXOX&lt;/td>
+&lt;td style="text-align:center">OK&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOOXOXOOXX&lt;/td>
+&lt;td style="text-align:center">OK&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>XOOXOOOXXX&lt;/td>
+&lt;td style="text-align:center">NG&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>大半は OOO もしくは XXX と同一記号が三連続しており、
+条件１を満たしません。
+条件を満たすものは次の三通りです。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>行&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>XOOX&lt;/strong>XO&lt;strong>O&lt;/strong>XO&lt;strong>X&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>XOOX&lt;/strong>OX&lt;strong>O&lt;/strong>XO&lt;strong>X&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>XOOX&lt;/strong>OX&lt;strong>O&lt;/strong>OX&lt;strong>X&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>太字は全てのパターンで共通している部分です。
+もともと入力に含まれていたXとOは当然共通していますが、
+それに加えて左から２文字目と３文字目もOで共通しているので、
+このマス目の値が確定します。&lt;/p>
+&lt;p>ついでに条件２も同じアルゴリズムでカバーできます。&lt;/p></description></item><item><title>Visual Studio Code を Chromebook で使う方法と、Chrome OS のレンダリングパイプライン</title><link>https://blog2.issei.org/2020/09/16/visual-studio-code-on-chromebook/</link><pubDate>Wed, 16 Sep 2020 21:25:29 +0200</pubDate><guid>https://blog2.issei.org/2020/09/16/visual-studio-code-on-chromebook/</guid><description>&lt;p>Chromebook で使えるエディタを探していたところ、
+&lt;a href="https://code.visualstudio.com/">Visual Stuido Code&lt;/a> が Chrome OS 上の Linux (beta) で使えることが判明。
+ただし私の環境で普通に使うと表示がぼやけるため何が問題なのか調べていたら、
+Chrome OS のレンダリングパイプラインの文書にたどり着いて、
+興味深く読みました。&lt;/p>
+&lt;h2 id="visual-studio-code-を-chrome-os-で使う">Visual Studio Code を Chrome OS で使う&lt;/h2>
+&lt;p>Visual Studio Code は Windows, MacOS に加えて Linux 向けにも公式にバイナリが提供されています。
+Chrome OS でも &lt;a href="https://support.google.com/chromebook/answer/9145439">Linux 向けのプログラムを実行することが可能&lt;/a> なので、
+公式バイナリをインストールするだけで使えます。&lt;/p>
+&lt;p>ただし私の環境だと表示がぼやけてしまい、
+またパフォーマンスも良くないです。&lt;/p>
+&lt;p>そもそも、
+どうやって Linux の GUI アプリケーションを Chrome OS で表示しているのかが気になって調べたところ、
+Sommelier + Wayland を使っている模様（&lt;a href="https://chromium.googlesource.com/chromiumos/platform2/+/HEAD/vm_tools/sommelier/">参考&lt;/a>）。&lt;/p>
+&lt;p>Wayland は抽象化された compositor インターフェースで、&lt;/p>
+&lt;ol>
+&lt;li>マウスやキーボードイベントをクライアントに渡す&lt;/li>
+&lt;li>各クライアントが描画したサーフェスを合成する&lt;/li>
+&lt;/ol>
+&lt;p>のが主な役割。&lt;/p>
+&lt;p>参考: &lt;a href="https://wayland.freedesktop.org/docs/html/ch03.html#sect-Wayland-Architecture-wayland_architecture">X vs. Wayland Archtecture&lt;/a>&lt;/p>
+&lt;p>Linux 上の GUI アプリケーションは通常 X lib を使って入力を受け取ったり描画を行います。
+ネイティブの Linux 環境では&lt;/p>
+&lt;ol>
+&lt;li>アプリケーションが X lib を呼び出す&lt;/li>
+&lt;li>X lib が X server と通信&lt;/li>
+&lt;li>X server が Linux kernel と　DRM (Direct Rendering Manager) / KRM (Kernel mode Setting) を介して通信&lt;/li>
+&lt;li>Linux kernel がデバイスドライバを介して物理的なデバイス（キーボード、マウス、ディスプレイなど）と相互にやりとり&lt;/li>
+&lt;/ol>
+&lt;p>という過程を経ますが、
+Chrome OS 上だと次のようになる（入力は逆の経路を通ってアプリケーションに届けられる）。&lt;/p>
+&lt;ol>
+&lt;li>アプリケーションが X lib を呼び出す&lt;/li>
+&lt;li>X lib が Chrome OS が提供する XWayland と通信&lt;/li>
+&lt;li>XWayland がウィンドウの描画イメージを作成し、Chrome OS 側のウィンドウマネージャー Aura に渡す&lt;/li>
+&lt;li>Aura がウィンドウの表示位置などを設定した上で、下位レイヤーに表示を依頼&lt;/li>
+&lt;/ol>
+&lt;p>おそらく Aura とのやり取り部分が性能のボトルネックになっていて、
+また Chrome OS 上で表示倍率を 1.0 以外に設定している場合にはビットマップイメージの拡大・縮小が行われ、
+表示がぼやけてしまうんでしょう。&lt;/p>
+&lt;h3 id="code-server">code-server&lt;/h3>
+&lt;p>Visual Studio Code はソースコードが公開されているので、
+直接 X lib を呼び出す代わりに HTML を出力してブラウザからアクセスできるようにした &lt;a href="https://github.com/cdr/code-server/blob/v3.5.0/doc/guide.md">code-server&lt;/a> が作られて公開されています。
+Chrome OS 上の Linux (beta) で code-server を実行し、
+Chrome OS のブラウザからアクセスすると性能的にも遜色なく使えます。&lt;/p>
+&lt;p>インストール手順&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -fOL https://github.com/cdr/code-server/releases/download/v3.5.0/code-server_3.5.0_amd64.deb
+sudo dpkg -i code-server_3.5.0_amd64.deb
+sudo systemctl enable --now code-server@$USER
+&lt;span style="color:#75715e"># Now visit http://127.0.0.1:8080. Your password is in ~/.config/code-server/config.yaml&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="chrome-os-のレンダリングパイプライン">Chrome OS のレンダリングパイプライン&lt;/h2>
+&lt;p>Chrome OS は Linux 上に構築されているので描画に X11 を使っているのかと思っていたら、
+2015年には状況が変わっていました。&lt;/p>
+&lt;p>&lt;a href="https://01.org/blogs/joone/2018/using-chrome-os-graphics-stack-intel-based-linux-desktops">USING THE CHROME OS* GRAPHICS STACK ON INTEL-BASED LINUX* DESKTOPS&lt;/a>&lt;/p>
+&lt;p>&lt;img src="https://01.org/sites/default/files/users/u32403/chrome_graphics_arch.png" alt="">&lt;/p>
+&lt;p>Aura は X lib を呼び出す代わりにプラットフォーム非依存の低レベル入出力・グラフィックスを抽象化した Ozone を使い、
+Ozone がプラットフォーム依存のバックエンド Ozone-gbm を介して Linux kernel (DRM/KMS) とやりとりします。&lt;/p>
+&lt;p>Ozone には Linux kernel とやりとりする Ozone-gbm 以外にも、
+Chromecast とやりとりする Cast や、
+Wayland ディスプレイプロトコルを使うバックエンドなど様々あるようです。&lt;/p>
+&lt;p>参考: &lt;a href="https://chromium.googlesource.com/chromium/src.git/+/master/docs/ozone_overview.md#ozone-platforms">Ozone Platform&lt;/a>&lt;/p>
+&lt;h3 id="arc">ARC++&lt;/h3>
+&lt;p>Chrome OS 上では ARC++ (Android Runtime App Runtime for Chrome) を使って Android アプリケーションも動作させることができます。&lt;/p>
+&lt;p>Android アプリケーションを作成する場合、
+通常は View や Canvas を使いますが、
+最終的には Open GL ES の命令セットになり GPU を使ってレンダリングされます。
+ハードウェアサポートがない場合やソフトウェアレンダリングが指定された場合には、CPU がレンダリングしますが、
+そうなるとかなり遅くなってします。&lt;/p>
+&lt;p>そこで ARC++ ではハードウェアアクセラレーションを使えるように、
+Render-node にアクセスするパスが用意されています。&lt;/p>
+&lt;p>参考: &lt;a href="https://qiangbo-workspace.oss-cn-shanghai.aliyuncs.com/2019-09-10-chromeos-with-android-app/Arcpp_Graphics.pdf">Arc++ Graphics&lt;/a>&lt;/p>
+&lt;h2 id="wayland">Wayland&lt;/h2>
+&lt;p>ドキュメントを読んでいると Wayland は&lt;/p>
+&lt;ol>
+&lt;li>抽象化された compositor インターフェース（プロトコル）&lt;/li>
+&lt;li>Wayland インターフェースを実装した特定の C ライブラリ&lt;/li>
+&lt;/ol>
+&lt;p>両方の意味で使われていて、
+若干ややこしいです。
+厳密に区別したい場合には、次の呼称を使うようです。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>名前&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>wayland-client&lt;/td>
+&lt;td>Wayland プロトコルを使うアプリケーション&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>wayand-server&lt;/td>
+&lt;td>抽象化された compositor&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>wayland-EGL&lt;/td>
+&lt;td>Open GL ES の命令セットを出力する compositor の一実装&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>また Linux 上で動く GUI アプリケーションは伝統的には X lib を使いますが、
+Gnome や KDE といったフレームワークを使っている場合には X lib の代わりに wayland も使えるようです。&lt;/p></description></item><item><title>静的 Web コンテンツ作成・配信環境</title><link>https://blog2.issei.org/2020/09/12/hosting-static-web-contents/</link><pubDate>Sat, 12 Sep 2020 17:40:42 +0200</pubDate><guid>https://blog2.issei.org/2020/09/12/hosting-static-web-contents/</guid><description>&lt;p>久しぶりにブログ（というか往年の Web 日記というか）を書き始めて、
+あらためて静的なコンテンツを作成し Web で公開するための環境について調べています。&lt;/p>
+&lt;p>ここ10年ぐらいバックエンドやモバイル関係の仕事が主だったので、
+Web のフロントエンド系の知識が更新されてませんでした。
+多少なりとも実際に使ってから調べると、理解が早い。&lt;/p>
+&lt;h2 id="コンテンツ作成">コンテンツ作成&lt;/h2>
+&lt;h3 id="背景">背景&lt;/h3>
+&lt;p>静的な Web コンテンツを配信するだけなら、原始的には&lt;/p>
+&lt;ol>
+&lt;li>Linux マシンを一台用意して&lt;/li>
+&lt;li>Apache をインストール&lt;/li>
+&lt;li>HTML を手書きして index.html ファイルを作る&lt;/li>
+&lt;li>Linux マシンの適当なディレクトリに index.html ファイルを置く&lt;/li>
+&lt;li>Linux マシンをインターネットに繋ぐ&lt;/li>
+&lt;/ol>
+&lt;p>だけで動きます。&lt;/p>
+&lt;p>HTML を CSS, Javascript と合わせて手書きすることは可能ですが、
+やりたいことに対して記述量が増えて大変です。
+単一ページの作成だけでなく Web サイトを構成するという観点だと、
+たとえばブログで新規エントリを書く度に「最新エントリ一覧」も合わせて手作業で更新することになり、
+だんだん辛くなってきます。&lt;/p>
+&lt;p>静的な Web コンテンツが主体であっても、
+一部には動的な要素を入れたくなることがあります。
+たとえばブログにユーザからのコメント欄を設ける場合、
+完全に静的な作りだとコメントを即時に表示することはできず、
+一旦コメントを製作者が受け取った上で、
+それを手作業でコンテンツに反映することになります。&lt;/p>
+&lt;h3 id="フロントエンドスタック">フロントエンドスタック&lt;/h3>
+&lt;p>そこで人間は本質的なコンテンツ作成に注力し、
+それ以外の部分は自動的に処理できるようにしたくなりますが、
+そのためのフロントエンドスタックの構成方法の一つとして &lt;a href="https://jamstack.org/">Jamstack&lt;/a> があります。&lt;/p>
+&lt;p>Jam は Javascript + API + Markup の意味ですが、これは大きく二つに分けられます。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>技術&lt;/th>
+&lt;th>コンテンツの種類&lt;/th>
+&lt;th>意味&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Javascript + API&lt;/td>
+&lt;td>動的コンテンツ&lt;/td>
+&lt;td>クライアントから外部のマイクロサービスを呼び出す&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Markup&lt;/td>
+&lt;td>静的コンテンツ&lt;/td>
+&lt;td>事前に HTML, CSS などを作成しておく&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>このブログは &lt;a href="https://jekyllrb.com/">Jekyll&lt;/a> + &lt;a href="https://pages.github.com/">GitHub Pages&lt;/a> で作っていますが、
+これがまさに Jasmstack の例。
+以前に &lt;a href="https://github.com/tdiary">tDiary&lt;/a> という Web 日記システムを使っていたことがありますが、
+比較すると構成の違いが分かりやすいです。&lt;/p>
+&lt;h4 id="markup">Markup&lt;/h4>
+&lt;p>マークアップは文書の構造（見出し、段落、リンクなど）を定義することですが、
+Web の世界だと文書を HTML で記述することほぼ同義です。&lt;/p>
+&lt;p>&lt;a href="https://jekyllrb.com/">Jekyll&lt;/a> と &lt;a href="https://github.com/tdiary">tDiary&lt;/a> いずれも、
+エントリを書くときには人間が書きやすい記法を使いますが、
+そのままではブラウザに表示できないため、
+どこかのタイミングで HTML に変換する必要があります。&lt;/p>
+&lt;p>&lt;a href="https://github.com/tdiary">tDiary&lt;/a> (非jamstack) では変換前のエントリとプログラムを配信サーバに配置し、
+ブラウザからアクセスがあった時点で配信サーバー上でプログラムが HTML を作成してブラウザに送ります。&lt;/p>
+&lt;p>&lt;img src="https://blog2.issei.org/assets/2020/09/jamstack/contents-building-tdiary.png" alt="tDiary コンテンツ作成フロー">&lt;/p>
+&lt;p>この方法には利点も多いのですが、一方で次のような欠点もあります。&lt;/p>
+&lt;ul>
+&lt;li>コンテンツ配信サーバー上でプログラムを実行する
+&lt;ul>
+&lt;li>セキュリティ上の問題を生じやすい。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>コンテンツが動的に作成される
+&lt;ul>
+&lt;li>CDN を使えないため、ユーザがアクセスするのに時間がかかる。&lt;/li>
+&lt;li>アクセス数に比例してビルド回数が増え、サーバーの処理能力が必要になる。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://jekyllrb.com/">Jekyll&lt;/a> (jamstack) では先に簡易記法で記述したエントリを HTML に変換し、
+変換済みの HTML ファイルを配信サーバーに配置します。&lt;/p>
+&lt;p>&lt;img src="https://blog2.issei.org/assets/2020/09/jamstack/contents-building-jamstack.png" alt="Jekyllコンテンツ作成フロー">&lt;/p>
+&lt;p>このデザインでは &lt;a href="https://github.com/tdiary">tDiary&lt;/a> の場合の欠点が解消していることが分かります。&lt;/p>
+&lt;ul>
+&lt;li>ビルドサーバー上でプログラムを実行する
+&lt;ul>
+&lt;li>ビルドサーバーにはコンテンツ制作者のみアクセスできれば良いため、セキュリティ上の問題が生じにくい。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>コンテンツが静的に作成される
+&lt;ul>
+&lt;li>CDN を使ってユーザに近いサーバーにコンテンツを置いて置けるため、アクセスが高速になる。&lt;/li>
+&lt;li>アクセス数によらずビルド回数は一定なので、サーバーの処理能力を増強する必要がない。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>なお HTML への変換処理はコンテンツ制作者の手元の PC で行うこともできますが、
+そうすると PC が単一障害点になり、
+また環境依存の問題も起きやすいので、
+ビルド環境を別に用意した方が良いです。&lt;/p>
+&lt;h4 id="javascript--api">Javascript + API&lt;/h4>
+&lt;p>ページ中で動的な処理を行いたい場合、
+たとえばブログにリアルタイムで投稿を反映可能なコメント欄を設置する方法。&lt;/p>
+&lt;p>&lt;a href="https://github.com/tdiary">tDiary&lt;/a> では配信サーバー上に置かれたプログラムがコメントを管理します。
+HTML を作成するときにコメントのデータを取得して埋め込みます。&lt;/p>
+&lt;p>&lt;img src="https://blog2.issei.org/assets/2020/09/jamstack/dynamic-contents-tdiary.png" alt="tDiary 動的コンテンツレンダリングフロー">&lt;/p>
+&lt;p>このデザインではコンテンツ配信サーバー上でプログラムを動かす必要があり、
+上記の &lt;a href="#markup">Markup&lt;/a> での欠点がそのまま残ります。&lt;/p>
+&lt;p>またコメントのデータの保存方法についても、
+単にサーバー側のローカルディスクに置くとハードディスクトラブルなどで容易に失われてしまいます。
+別途データベースサーバーなどを用意することも考えられますが、
+今度はデータベースサーバーの設定・運用コストが大きくなります。&lt;/p>
+&lt;p>&lt;a href="https://jekyllrb.com/">Jekyll&lt;/a> では配信サーバーとは別に、
+コメントだけを管理する &lt;a href="https://disqus.com/home/settings/account/">Disqus&lt;/a> などの外部サービスを利用します。
+配信サーバーからは Javascript で記述された外部サーバーと通信するための小さなプログラムを送り、
+実際のコメントの取得と表示、投稿などはクライアントが外部サーバーと通信して行います。&lt;/p>
+&lt;p>&lt;img src="https://blog2.issei.org/assets/2020/09/jamstack/dynamic-contents-jamstack.png" alt="Jekyll 動的コンテンツレンダリングフロー">&lt;/p>
+&lt;p>コンテンツサーバー上にはプログラムを設置することなく、
+ユーザには動的なコンテンツを含んだ Web ページを提供することができます。
+また外部サービスの追加も容易です。&lt;/p>
+&lt;h3 id="静的サイト構築フレームワーク">静的サイト構築フレームワーク&lt;/h3>
+&lt;p>GitHub で人気があるもの上位。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>フレームワーク名&lt;/th>
+&lt;th>プログラミング言語&lt;/th>
+&lt;th>フレームワーク&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://nextjs.org/">Next.js&lt;/a>&lt;/td>
+&lt;td>Javascript&lt;/td>
+&lt;td>React&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://www.gatsbyjs.com/">Gatsby&lt;/a>&lt;/td>
+&lt;td>Javascript&lt;/td>
+&lt;td>React&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://nuxtjs.org/">Nuxt&lt;/a>&lt;/td>
+&lt;td>Javascript&lt;/td>
+&lt;td>Vue.js&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://gohugo.io/">Hugo&lt;/a>&lt;/td>
+&lt;td>Golang&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="https://jekyllrb.com/">Jekyll&lt;/a>&lt;/td>
+&lt;td>Ruby&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>個人的には &lt;a href="https://jekyllrb.com/">Jekyll&lt;/a> しか使ったことはないですが、
+後で他も見てみたいです。&lt;/p>
+&lt;h2 id="コンテンツ配信">コンテンツ配信&lt;/h2>
+&lt;p>サイトを構築したら、
+インターネット上のサイトに置いてアクセス可能にする必要があります。&lt;/p>
+&lt;h3 id="静的サイト向けホスティングサービス">静的サイト向けホスティングサービス&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.netlify.com/">Netlify&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pages.github.com/">GitHub Pages&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>静的サイト向けのホスティングサービスなので、
+ロードバランシングや CDN などは相手におまかせ。&lt;/p>
+&lt;p>GitHub からの継続的インテグレーション、継続的デプロイメント (CI/CD) に対応しているので、&lt;/p>
+&lt;ol>
+&lt;li>GitHub にリポジトリを作っておいてコンテンツはそこに push&lt;/li>
+&lt;li>リポジトリの変更をトリガとして、ホスティングサービス側でサイトのビルドを開始&lt;/li>
+&lt;li>ビルドしたコンテンツを配信サーバ上に配置&lt;/li>
+&lt;/ol>
+&lt;p>というフローを簡単に作れます。&lt;/p>
+&lt;p>&lt;a href="https://pages.github.com/">GitHub Pages&lt;/a> は &lt;a href="https://jekyllrb.com/">Jekyll&lt;/a> で作成したコンテンツの配信先としてカジュアルに使うには良いですが、
+本格的に使おうとすると制約が多いです。&lt;/p>
+&lt;h3 id="クラウドストレージ">クラウドストレージ&lt;/h3>
+&lt;p>汎用のクラウドストレージにファイルを置いて、
+それにロードバランサーや CDN を組み合わせることで、
+サイトを構築することができます。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.aws.amazon.com/s3/index.html">AWS S3&lt;/a> + &lt;a href="https://aws.amazon.com/de/cloudfront/">CloudFront&lt;/a>&lt;/li>
+&lt;li>Azure Storage (&lt;a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website">Static website hosting in Azure Storage&lt;/a>)&lt;/li>
+&lt;li>&lt;a href="https://cloud.google.com/storage/docs/hosting-static-website">Google Cloud Storage + Cloud Load Balancing&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="技術的背景">技術的背景&lt;/h2>
+&lt;p>&lt;a href="https://jamstack.org/">Jamstack&lt;/a> のコンセプトが広まったのは2017年からのようですが、
+それまではアイデアとしてはあっても技術的に現実的ではなかったんでしょうかね。&lt;/p>
+&lt;p>基盤として、次のような前提が成り立って初めて、今の形の静的サイト構築＋動的コンテンツ埋め込みが可能になります。&lt;/p>
+&lt;ul>
+&lt;li>ソースコードのホスティング先として GitHub が安定したサービスを提供&lt;/li>
+&lt;li>コンテナ仮想化により CI/CD が低コスト・高速に行えるように&lt;/li>
+&lt;li>安価に CDN を使えるように&lt;/li>
+&lt;li>Javascript フレームワークならびにブラウザが熟成し、マイクロサービスを組み合わせて使うのが容易に&lt;/li>
+&lt;/ul></description></item><item><title>「ゲーム開発者のための C++11～C++20, 将来の C++ の展望」を読む</title><link>https://blog2.issei.org/2020/09/09/cpp/</link><pubDate>Wed, 09 Sep 2020 23:20:47 +0200</pubDate><guid>https://blog2.issei.org/2020/09/09/cpp/</guid><description>&lt;p>CEDEC 2020 で、
+最近の C++ の機能を解説したセッションの
+&lt;a href="https://speakerdeck.com/cpp/cedec2020">プレゼンテーション資料&lt;/a> が公開されていたので読みました。
+最近は C++ を仕事で使う機会もなく遠ざかっていたので、
+知らない間に便利な機能がだいぶ増えてる。
+勉強になりました。&lt;/p>
+&lt;p>あとスライドの謝辞を見て、
+Akira さんが PFN に転職していることを今さら知りました。&lt;/p></description></item><item><title>Android 11 公開</title><link>https://blog2.issei.org/2020/09/09/android11-release/</link><pubDate>Wed, 09 Sep 2020 15:39:10 +0200</pubDate><guid>https://blog2.issei.org/2020/09/09/android11-release/</guid><description>&lt;p>&lt;a href="https://www.android.com/android-11/">Android 11&lt;/a> が公開されましたが、
+私が関わった内容の一部を紹介。&lt;/p>
+&lt;p>今回、
+私は新機能の Bubbles に関連する WindowManager 側の同期処理や、
+内部的な処理なのでユーザーから見た変更はないですが ActivityRecord と AppWindowToken 統合に伴ってグチャグチャになっていた visibility 関連の状態管理の整理、
+あとは AppTransition 関係で変更を入れてます。&lt;/p>
+&lt;h2 id="activityrecord-と-appwindowtoken-統合">ActivityRecord と AppWindowToken 統合&lt;/h2>
+&lt;p>Android 10 ではクライアント側の Activity に対応してサーバー側で AppWindowToken というデータ構造が確保されていました。
+AppWindowToken は別のサーバー側のインスタンス ActivityRecord と 1:1 対応しており、
+いくつかの変更を経て AppWindowToken と ActivityRecord を分離しておく意味がなくなったので統合されたのですが、
+副作用として visibility 関係の管理がひどいことに。&lt;/p>
+&lt;p>たとえば、ActivityRecord は Activity が画面に表示されているか、
+それとも非表示状態かを管理しています。
+ただし、いきなり表示状態から非表示状態（あるいはその逆）に変更できないので、
+まずは表示状態のままで、「これから Activity の終了アニメーションを実行して非表示状態にする」という状態に設定し、
+アニメーションを開始してから非表示状態にします
+（そうしないとアニメーション開始前にいきなり画面から消えることこなる）。&lt;/p>
+&lt;p>AppWindowToken と ActivityRecord を統合した結果、
+この中間状態を管理するフラグが2つになってしまいました。&lt;/p>
+&lt;ul>
+&lt;li>ActivityRecord.visible&lt;/li>
+&lt;li>ActivityRecord.hiddenRequested&lt;/li>
+&lt;/ul>
+&lt;p>表示から非表示状態にする場合、
+最終的に&lt;/p>
+&lt;ul>
+&lt;li>ActivityRecord.visible=false&lt;/li>
+&lt;li>ActivityRecord.hiddenRequested=true&lt;/li>
+&lt;/ul>
+&lt;p>に設定する必要があるのですが、
+このフラグを読み取る側のロジックの都合で、
+片方のフラグは早めに設定して、
+もう一方はその段階では更新せずに後になってから更新しないと、
+期待通りに動作しない。&lt;/p>
+&lt;p>他にも基底クラスと派生クラスで意味が一致しなくなっている関数とか、
+ほぼ同じだけど微妙に振る舞いが違う&lt;/p>
+&lt;ul>
+&lt;li>ActivityRecord.setVisible&lt;/li>
+&lt;li>ActivityRecord.setVisibility&lt;/li>
+&lt;/ul>
+&lt;p>などができてしまい、
+整理しました。&lt;/p>
+&lt;p>&lt;a href="https://android.googlesource.com/platform/frameworks/base/+log/f2f6c91dd3c4ce44e3ec60d6765d4733835a4a45/services/core/java/com/android/server/wm/ActivityRecord.java">ActivityRecord の変更履歴&lt;/a> を見ると、
+苦労の後が伺えると思います。
+一回壊して Revert されました。&lt;/p>
+&lt;h2 id="apptransition">AppTransition&lt;/h2>
+&lt;p>AppTransition は Activity の切り替えを管理してます。&lt;/p>
+&lt;p>アプリケーション開発者の立場からすると、
+Activity の切り替えは Activity を開始したり終了したりする API を呼ぶだけですが、
+裏では&lt;/p>
+&lt;ol>
+&lt;li>Activity の表示状態に影響があるイベントが発生する（例：アクティビティを新規に開始する）と、それによって新しく表示されることになる Activity やその親の Task, ActivityStack （まとめて親クラスの WindowContainer で呼びます）、逆にこれまで表示されていたのに非表示になる WindowContainer を特定する。&lt;/li>
+&lt;li>新規に表示される Activity を実行し、フレームバッファに描画を完了するのを待つ。（スプラッシュ・スクリーンの場合もある）&lt;/li>
+&lt;li>表示→非表示、非表示→表示になる WindowContainer に対して、それぞれイベントや WindowContainer の種類に応じたアニメーションを適用する。&lt;/li>
+&lt;li>WindowContainer の表示・非表示を管理するフラグを更新する&lt;/li>
+&lt;li>アニメーション終了を待つ&lt;/li>
+&lt;/ol>
+&lt;p>といった処理を行っています。&lt;/p>
+&lt;p>このあたりの設計は全画面アプリケーションしかない自体の設計をひきずっているところがあって、
+すべてが Activity ベースになっており、
+そのために直せないバグや不必要に複雑になっているコードがありました。&lt;/p>
+&lt;p>まだ道半ばですが、
+とりあえずアニメーションを適用する対象を ActivityRecord から Task など親の WindowContainer に変更できるようにしました。
+下準備はいろいろ大変でしたが、
+最終的にアニメーション対象を ActivityRecord から親に格上げする &lt;a href="https://android.googlesource.com/platform/frameworks/base/+/737b7f16208c455eb392fbee8e681597ebeb48d1/services/core/java/com/android/server/wm/AppTransitionController.java#397">コード&lt;/a> は、
+シンプルな再帰処理。&lt;/p>
+&lt;p>参考: &lt;a href="https://android.googlesource.com/platform/frameworks/base/+log/refs/heads/android11-release/services/core/java/com/android/server/wm/AppTransitionController.java">AppTarnsitionController の変更履歴&lt;/a>&lt;/p>
+&lt;h2 id="bubbles">Bubbles&lt;/h2>
+&lt;p>&lt;a href="https://developer.android.com/guide/topics/ui/bubbles">Bubbles&lt;/a> は
+&lt;a href="https://developer.android.com/guide/topics/ui/notifiers/notifications">Notifications&lt;/a> の拡張となってますが、
+Notification とは違って任意の Activity を実行して描画させることができます。&lt;/p>
+&lt;p>通常の UI であれば OS が AppTransition を使って、
+適切なタイミングでアクティビティを表示したり開始・終了アニメーションを適用するのですが、
+Bubbles は OS のコア部分とは切り離して &lt;a href="https://android.googlesource.com/platform/frameworks/base/+/refs/heads/android11-release/packages/SystemUI/">System UI&lt;/a> で実装されているので、
+この同期処理を一部 System UI で実装する必要があります。&lt;/p>
+&lt;p>Android 10 の段階で一通り実装したのですが、
+いくつかバグが残って 11 で直しきった感じです。
+Bubbles の同期処理は DisplayManager, WindowManager, SystemUI, (Bubblesの中で実行されている) Activity, RenderThread など非同期通信するスレッドが複数関与するので、
+ここでバグがあるとデバッグが極めて面倒。&lt;/p>
+&lt;p>&lt;a href="https://android.googlesource.com/platform/frameworks/base/+/f76ce36997220a482571625fd51274a8e5a11d11%5E%21/#F0">Fix bubble shows empty contents after rotating the device&lt;/a> とか実質的には&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-java" data-lang="java">&lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">(&lt;/span>isSingleTaskInstance&lt;span style="color:#f92672">())&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
+&lt;span style="color:#f92672">+&lt;/span> updateTransitLocked&lt;span style="color:#f92672">(&lt;/span>TRANSIT_SHOW_SINGLE_TASK_DISPLAY&lt;span style="color:#f92672">,&lt;/span> options&lt;span style="color:#f92672">,&lt;/span>
+&lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span> &lt;span style="color:#75715e">/* forceOverride */&lt;/span>&lt;span style="color:#f92672">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>だけの変更ですが、
+原因を突き止めるのが大変でした。&lt;/p></description></item><item><title>位置情報がある写真を公開する前に警告</title><link>https://blog2.issei.org/2020/09/02/warn-exif/</link><pubDate>Wed, 02 Sep 2020 22:58:52 +0200</pubDate><guid>https://blog2.issei.org/2020/09/02/warn-exif/</guid><description>&lt;p>先日のブログに載せた写真、
+調べてみたらジオタグで撮影箇所の緯度・経度が埋まったままでした 🤦‍♂&lt;/p>
+&lt;p>さすがに自宅の場所を公開したくはないので、
+Git リポジトリから元の写真を削除し、
+ジオタグを削除したファイルで置き換えました。
+また再発防止のため、
+位置情報がある写真をコミットする前に警告を出すように設定しました。&lt;/p>
+&lt;p>仕事以外で、
+たまに Apps Script とか、
+こういう小さなツールを書くのは楽しいですね。&lt;/p>
+&lt;h2 id="git-リポジトリから写真を削除">Git リポジトリから写真を削除&lt;/h2>
+&lt;p>Git リポジトリから削除する方法に関しては、
+こちらの記事を参考にしました。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.karakaram.com/git-rebase-i-usage/#edit">あのコミットをなかった事に。git rebase -i の使い方&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code>% git rebase -i 問題のコミットの直前のハッシュ値
+&lt;/code>&lt;/pre>&lt;p>これでエディタが開き、
+問題のコミットから最新のコミットまでどうするかを聞かれるので、
+問題のコミットだけ edit にして残りは pick のままにしておきます。&lt;/p>
+&lt;p>ファイルを保存してエディタを閉じると、
+指定したコミット直後の状態になっているので、
+画像を削除して rebase を継続します。&lt;/p>
+&lt;pre>&lt;code>% git rm 位置情報入りの写真.jpg
+% git rebase --continue
+&lt;/code>&lt;/pre>&lt;p>GitHub にあるリポジトリとローカルリポジトリが不整合になるため、
+ローカルリポジトリのデータで強制的に上書きします。&lt;/p>
+&lt;pre>&lt;code>% git push -f
+&lt;/code>&lt;/pre>&lt;p>（なお、複数人で開発しているときにこれをやるとリポジトリを壊します）&lt;/p>
+&lt;h2 id="位置情報がある写真に対して警告を出す">位置情報がある写真に対して警告を出す&lt;/h2>
+&lt;p>Git は commit 直前にスクリプトを走らせる機能があるので、
+これを使って、
+追加・変更されたファイルにジオタグが埋まっていないかをチェックします。&lt;/p>
+&lt;h3 id="_toolscheck_geotagpyhttpsgithubcomisseisblogblobcheck_geo_tag_v002_toolscheck_geotagpy">&lt;a href="https://github.com/isseis/blog/blob/check_geo_tag_v0.0.2/_tools/check_geotag.py">_tools/check_geotag.py&lt;/a>&lt;/h3>
+&lt;p>まずは Python を使って、
+簡単なスクリプトを作成。&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>git diff&lt;/code> を使って、変更されたファイルの一覧を取得&lt;/li>
+&lt;li>変更されたファイルが JPEG ファイルだった場合、exiftool という外部コマンドを呼び出して EXIF データを取得。&lt;/li>
+&lt;li>EXIF データに位置情報があるか調べる。&lt;/li>
+&lt;/ol>
+&lt;p>テストの際には &lt;code>git diff&lt;/code> の出力を使っていると面倒なので、
+コマンドラインから写真のファイル名を指定できるようにしてあります。&lt;/p>
+&lt;h3 id="_toolstesthttpsgithubcomisseisblogtreecheck_geo_tag_v002_toolstest">&lt;a href="https://github.com/isseis/blog/tree/check_geo_tag_v0.0.2/_tools/test">_tools/test&lt;/a>&lt;/h3>
+&lt;p>関数レベルでの単体テストと、
+あとは実際の画像ファイルと exiftool を使ってスクリプトの終了コードを調べるテスト。&lt;/p>
+&lt;p>また &lt;a href="http://mypy-lang.org/">mypy&lt;/a> を使って、
+Python スクリプトに対して静的型検査を行っています。&lt;/p>
+&lt;h3 id="post-commithttpsgithubcomisseisblogblobcheck_geo_tag_v002_toolshookspre-commit">&lt;a href="https://github.com/isseis/blog/blob/check_geo_tag_v0.0.2/_tools/hooks/pre-commit">post-commit&lt;/a>&lt;/h3>
+&lt;p>&lt;code>git commit&lt;/code> 実行時に上記の Python スクリプトが実行されるように、
+&lt;code>.git/hooks/post-commit&lt;/code> ファイルを作成します。&lt;/p>
+&lt;p>.git 以下のファイルは Git で管理できないので、
+開発中のスクリプトは &lt;code>_tools/hooks&lt;/code> に置いて、
+最初の一回だけ手作業でコピー。
+二度目以降は、
+post-commit が自動的に最新版をコピーしてくるようにしました。&lt;/p>
+&lt;p>参考: &lt;a href="https://tech.appbrew.io/entry/2020/05/15/132413#pre-commit%E3%82%92Git%E3%81%A7%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B">pre-commitをGitで管理する&lt;/a>&lt;/p>
+&lt;h3 id="readmehttpsgithubcomisseisblogblobcheck_geo_tag_v002readmemd">&lt;a href="https://github.com/isseis/blog/blob/check_geo_tag_v0.0.2/README.md">README&lt;/a>&lt;/h3>
+&lt;p>使い方を忘れそうなので、
+最後に README を書いて終了。&lt;/p>
+&lt;h3 id="備考-mypy-のインストール方法">備考: mypy のインストール方法&lt;/h3>
+&lt;p>get-pip.py を &lt;a href="https://pip.pypa.io/en/stable/installing/">Python Packaging Authority&lt;/a> から入手。&lt;/p>
+&lt;pre>&lt;code>% python3 get-pip.py --user
+% export PATH=$HOME/.local/bin:$PATH # ~/.bashrc に追記しておく
+% pip3 install mypy
+&lt;/code>&lt;/pre></description></item><item><title>Google スプレッドシートで請求書作成</title><link>https://blog2.issei.org/2020/08/24/apps_script_for_billing/</link><pubDate>Mon, 24 Aug 2020 17:45:41 +0200</pubDate><guid>https://blog2.issei.org/2020/08/24/apps_script_for_billing/</guid><description>&lt;p>私の子供は週に一度、
+日本語を学ぶための日本語学校に通っています。
+義務教育ではないので、学校運営に関わる費用は保護者負担で、
+半期ごとに日本語学校から保護者に請求書を送っています。&lt;/p>
+&lt;p>我が家ではこの請求書作成を手伝っているのですが、
+件数も増えたたため手作業で一枚ずつ請求書を作るのは非現実的なので、
+Google スプレッドシートと Apps Script を使って請求書発行システムを作りました。
+スプレッドシートに所定の形式で保護者と児童の情報を入力すると、
+各家庭に対して一枚ずつ PDF 形式で請求書を書き出します。&lt;/p>
+&lt;p>さほど複雑な内容ではないので仕様書を作るほどではありませんが、
+さすがに何もないと忘れそうなので記録に残しておきます。
+あと Apps Script を使い始める上での取っ掛かりの知識と、
+いくつか部分的に再利用できそうなコードの断片を残しておきます。&lt;/p>
+&lt;p>いわゆる業務系アプリケーションになるので、
+プログラミング自体は全く難しくないです。
+ただしデータの入力から入金確認まで一連の業務を想定してデータの仕様を決め、
+ユーザにやってもらう処理・プログラム的に行う処理の切り分けを行わないと、
+あとで運用できずに破綻しがち。
+私は以前 BPR の IT コンサルをやってたことがあるので、
+この手の業務・システム設計はお手のもの。&lt;/p>
+&lt;h2 id="要求仕様">要求仕様&lt;/h2>
+&lt;ul>
+&lt;li>請求書は児童単位ではなく、家族単位で発行する。一部請求項目が家族単位のため。&lt;/li>
+&lt;li>請求金額は次の合計。
+&lt;ul>
+&lt;li>会費　（家族単位）&lt;/li>
+&lt;li>授業料　（児童単位）&lt;/li>
+&lt;li>教材費　（児童単位）&lt;/li>
+&lt;li>日本語検定試験対策授業料　（児童単位）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>費目&lt;/th>
+&lt;th>単位&lt;/th>
+&lt;th>金額の決まり方&lt;/th>
+&lt;th>備考&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>会費&lt;/td>
+&lt;td>家族&lt;/td>
+&lt;td>会員種別&lt;/td>
+&lt;td>その家庭が学校運営に関わる場合には減額&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>授業料&lt;/td>
+&lt;td>児童&lt;/td>
+&lt;td>一律&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>教材費&lt;/td>
+&lt;td>児童&lt;/td>
+&lt;td>学年毎&lt;/td>
+&lt;td>例：幼稚園クラスは無料、小学校クラスは20フランなど&lt;br>上期には請求するが下期は請求しない&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>日本語検定試験対策授業料&lt;/td>
+&lt;td>児童&lt;/td>
+&lt;td>一律&lt;/td>
+&lt;td>受講を希望する児童にのみ請求&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>他にも出力するファイル名などの細かい仕様がいくつかありましたが、
+それらはスプレッドシートでマクロを使って自動生成して特定のセルに書いてもらうようにして、
+Apps Script にはロジックを持ち込まないようにしました。&lt;/p>
+&lt;h2 id="データ構造">データ構造&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>シート名&lt;/th>
+&lt;th>内容&lt;/th>
+&lt;th>備考&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>T_保護者&lt;/td>
+&lt;td>保護者の情報&lt;/td>
+&lt;td>家庭ごとに1行&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>T_児童&lt;/td>
+&lt;td>児童の情報&lt;/td>
+&lt;td>児童ごとに1行&lt;br>保護者1エントリに対して複数の児童が対応&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>請求書作成データ&lt;/td>
+&lt;td>全請求書共通のデータ&lt;/td>
+&lt;td>今季の授業料の金額など&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="運用">運用&lt;/h3>
+&lt;ul>
+&lt;li>保護者・児童とも入校前に名簿に登録し、退校後も一定期間は削除しない。&lt;/li>
+&lt;li>児童の在籍学年は個別に設定可能とする。原則として日本の学年と合わせるが、進度に応じて留年などの措置もあり得るため。&lt;/li>
+&lt;li>出力される請求書は、請求書発行を行う日時に依存しないようにする。
+&lt;ul>
+&lt;li>発行日時を基準に「○○年度第一期分請求書」などと自動的に計算すると、事前の請求書発行テスト、実際の発行、（トラブルがあったときの）請求書再発行で内容が変わってしまう。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>発行した請求書は PDF 形式で残しておく。&lt;/li>
+&lt;li>次期の請求書発行業務を始めたら、前期の請求書は再発行できなくなっても構わない。&lt;/li>
+&lt;/ul>
+&lt;h2 id="プログラム">プログラム&lt;/h2>
+&lt;p>請求書発行プログラムは、
+Google スプレッドシートの Apps Script として作りました。
+実行すると次のようにして請求書を作成します。&lt;/p>
+&lt;ol>
+&lt;li>スプレッドシートから情報を読み込む&lt;/li>
+&lt;li>家族単位で集計し、出力する項目、金額と合計額を求める。&lt;/li>
+&lt;li>Goodle ドキュメントで作成したテンプレートをコピーし、上で求めた値を使って可変部分を置き換える。&lt;/li>
+&lt;li>Google ドキュメントから PDF に変換。&lt;/li>
+&lt;/ol>
+&lt;h3 id="スクリプトを書き始める">スクリプトを書き始める&lt;/h3>
+&lt;p>メニューから［ツール］→［スクリプトエディタ］を選択すると、
+スクリプトエディタが開きます。&lt;/p>
+&lt;h3 id="スクリプトの実行方法">スクリプトの実行方法&lt;/h3>
+&lt;p>スクリプトエディタから直接関数を選択して実行することもできますが、
+スプレッドシートのメニューに追加しておくと、
+あとで他の人に実行してもらう際に便利です。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">ui&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">SpreadsheetApp&lt;/span>.&lt;span style="color:#a6e22e">getUi&lt;/span>();
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">onOpen&lt;/span>() {
+&lt;span style="color:#a6e22e">ui&lt;/span>
+.&lt;span style="color:#a6e22e">createMenu&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;請求書&amp;#39;&lt;/span>)
+.&lt;span style="color:#a6e22e">addItem&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;作成&amp;#39;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#e6db74">&amp;#39;createBills&amp;#39;&lt;/span>)
+.&lt;span style="color:#a6e22e">addToUi&lt;/span>();
+}
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">createBills&lt;/span>() {
+&lt;span style="color:#75715e">// 請求書作成のコード
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="デバッグ方法">デバッグ方法&lt;/h3>
+&lt;p>みんな大好き printf デバッグ。
+&lt;a href="https://developers.google.com/apps-script/guides/logging">Stackdriver Logging&lt;/a> が使えます。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">info&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;保護者テーブルの処理開始&amp;#39;&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>こんな感じでスクリプト中にログメッセージを出力するコードを埋めておくと、
+Apps Script ダッシュボードでメッセージを見ることができます。&lt;/p>
+&lt;p>またコードの一部を &lt;code>console.time&lt;/code>, &lt;code>console.timeEnd&lt;/code> で囲むと、
+その間の処理にかかった時間が出力されます。&lt;/p>
+&lt;p>&lt;strong>ログ出力例&lt;/strong>&lt;/p>
+&lt;p>&lt;img src="https://blog2.issei.org/assets/2020/08/24/log_on_dashboard.png" alt="ログ出力例">&lt;/p>
+&lt;h3 id="データの読み取りの高速化">データの読み取りの高速化&lt;/h3>
+&lt;p>&lt;code>Sheet.getRange&lt;/code> API は遅いので、
+スプレッドシートのセルを読み取る際に呼び出し回数をなるべく減らします。&lt;/p>
+&lt;p>最初 &lt;a href="https://developers.google.com/apps-script/reference/spreadsheet/sheet#getrangerow,-column">&lt;code>Sheet.getRange(row, column)&lt;/code>&lt;/a> を使って
+保護者の情報をシートから1行ずつ読み取っていたのですが、
+これだと呼び出しの度にスプレッドシートとの通信が発生するため、
+保護者数が増えると実行時間が比例して伸びていきます。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">ss&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">SpreadsheetApp&lt;/span>.&lt;span style="color:#a6e22e">getActiveSpreadsheet&lt;/span>();
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">s&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">ss&lt;/span>.&lt;span style="color:#a6e22e">getSheetByName&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;T_保護者&amp;#39;&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">lastRow&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">s&lt;/span>.&lt;span style="color:#a6e22e">getLastRow&lt;/span>();
+&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">s&lt;/span>.&lt;span style="color:#a6e22e">getLastColumn&lt;/span>(); &lt;span style="color:#f92672">++&lt;/span>&lt;span style="color:#a6e22e">i&lt;/span>) {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">range&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">s&lt;/span>.&lt;span style="color:#a6e22e">getRange&lt;/span>(&lt;span style="color:#a6e22e">i&lt;/span>, &lt;span style="color:#a6e22e">lastColumn&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">values&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">range&lt;/span>.&lt;span style="color:#a6e22e">getValues&lt;/span>();
+&lt;span style="color:#75715e">// 1家族分の情報（一行分のデータ）が values に入ってくる
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// values を使って請求書を作成
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>代わりに &lt;a href="https://developers.google.com/apps-script/reference/spreadsheet/sheet#getrangerow,-column,-numrows,-numcolumns">&lt;code>getRange(row, column, numRows, numColumns)&lt;/code>&lt;/a> で複数行を一度に読み込み、
+そうして得られた &lt;a href="https://developers.google.com/apps-script/reference/spreadsheet/range">&lt;code>Range&lt;/code>&lt;/a> オブジェクトを走査すると、
+スプレッドシートとの通信は1度で済むので、
+データ数が増えても処理時間が変わりません。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">ss&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">SpreadsheetApp&lt;/span>.&lt;span style="color:#a6e22e">getActiveSpreadsheet&lt;/span>();
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">s&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">ss&lt;/span>.&lt;span style="color:#a6e22e">getSheetByName&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;T_保護者&amp;#39;&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">lastColumn&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">s&lt;/span>.&lt;span style="color:#a6e22e">getLastColumn&lt;/span>();
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">lastRow&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">s&lt;/span>.&lt;span style="color:#a6e22e">getLastRow&lt;/span>();
+&lt;span style="color:#75715e">// header に1行目（見出し）の情報を読み込む
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">header&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">s&lt;/span>.&lt;span style="color:#a6e22e">getRange&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#a6e22e">lastColumn&lt;/span>).&lt;span style="color:#a6e22e">getDisplayValues&lt;/span>()[&lt;span style="color:#ae81ff">0&lt;/span>]
+&lt;span style="color:#75715e">// body に2行目以降の情報を読み込む
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">body&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">s&lt;/span>.&lt;span style="color:#a6e22e">getRange&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#a6e22e">lastRow&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#a6e22e">lastColumn&lt;/span>);
+&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; &lt;span style="color:#a6e22e">body&lt;/span>.&lt;span style="color:#a6e22e">getNumRows&lt;/span>(); &lt;span style="color:#f92672">++&lt;/span>&lt;span style="color:#a6e22e">i&lt;/span>) {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">values&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">bodyValues&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>];
+&lt;span style="color:#75715e">// 1家族分の情報（一行分のデータ）が values に入ってくる
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// values を使って請求書を作成
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="テンプレートから一部文字列を置き換えた-google-ドキュメントを作成">テンプレートから一部文字列を置き換えた Google ドキュメントを作成&lt;/h3>
+&lt;p>Goodle ドキュメントで作っておいたテンプレートファイルを読み込み、
+その中に埋め込んだ特定の文字列を置き換えたファイルを作ります。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">templateId&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;xxx&amp;#39;&lt;/span>; &lt;span style="color:#75715e">// Google ドキュメントで作成したテンプレートファイルのID
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">copyFile&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">DriveApp&lt;/span>.&lt;span style="color:#a6e22e">getFileById&lt;/span>(&lt;span style="color:#a6e22e">templateId&lt;/span>).&lt;span style="color:#a6e22e">makeCopy&lt;/span>(),
+&lt;span style="color:#a6e22e">copyId&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">copyFile&lt;/span>.&lt;span style="color:#a6e22e">getId&lt;/span>(),
+&lt;span style="color:#a6e22e">copyDoc&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">DocumentApp&lt;/span>.&lt;span style="color:#a6e22e">openById&lt;/span>(&lt;span style="color:#a6e22e">copyId&lt;/span>),
+&lt;span style="color:#a6e22e">copyBody&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">copyDoc&lt;/span>.&lt;span style="color:#a6e22e">getActiveSection&lt;/span>();
+&lt;span style="color:#75715e">// テンプレート中の &amp;#39;%保護者ID%&amp;#39; という文字列を 3 に置き換える。
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">copyBody&lt;/span>.&lt;span style="color:#a6e22e">replaceText&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;%保護者ID%&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;3&amp;#39;&lt;/span>);
+&lt;span style="color:#a6e22e">copyDoc&lt;/span>.&lt;span style="color:#a6e22e">saveAndClose&lt;/span>()
+&lt;span style="color:#a6e22e">copyFile&lt;/span>.&lt;span style="color:#a6e22e">setName&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;出力ファイル名&amp;#39;&lt;/span>);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Google ドキュメントのIDは、
+Google ドキュメントを開いたときの URL に含まれる60文字程度のランダムな英数字です。&lt;/p>
+&lt;p>&lt;strong>例&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>URL&lt;br>
+&lt;code>https://docs.google.com/document/d/1RjQCF3Vkp7q9VsGUvO5wyglwb9zSKDtarecJMCJrGQo/edit&lt;/code>&lt;/li>
+&lt;li>ID&lt;br>
+&lt;code>1RjQCF3Vkp7q9VsGUvO5wyglwb9zSKDtarecJMCJrGQo&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="google-ドキュメント中のテーブルに項目を追加">Google ドキュメント中のテーブルに項目を追加&lt;/h3>
+&lt;p>前述の方法はテンプレート中に含まれる項目を置き換えるだけなので、
+場合によっては出力したくないなど項目数が可変となる場合には対応できません。
+この場合にはテーブルを使うと便利です。&lt;/p>
+&lt;p>下記のコードでは、ドキュメントの最初に出てくるテーブルに「見出し」「値」の2項目からなる行を追加しています。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#75715e">// ドキュメント中の最初のテーブルを取得
+&lt;/span>&lt;span style="color:#75715e">// copyBody は前項参照
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">tables&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">copyBody&lt;/span>.&lt;span style="color:#a6e22e">getTables&lt;/span>();
+&lt;span style="color:#a6e22e">table&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">tables&lt;/span>[&lt;span style="color:#ae81ff">0&lt;/span>];
+&lt;span style="color:#75715e">// 1行追加
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">appendLine&lt;/span>(&lt;span style="color:#a6e22e">table&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;第二期授業料&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;32.5&amp;#39;&lt;/span>);
+&lt;span style="color:#75715e">/**
+&lt;/span>&lt;span style="color:#75715e"> * 表に請求項目を一行追加する
+&lt;/span>&lt;span style="color:#75715e"> *
+&lt;/span>&lt;span style="color:#75715e"> * table 追加先のテーブル
+&lt;/span>&lt;span style="color:#75715e"> * item 請求費目（例: &amp;#34;Schulgebühr 2. Semester 2018/2019, John Smith&amp;#34;)
+&lt;/span>&lt;span style="color:#75715e"> * cost 請求金額（例: 32.5）
+&lt;/span>&lt;span style="color:#75715e"> * bold 行を太字にするか
+&lt;/span>&lt;span style="color:#75715e"> */&lt;/span>
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">appendLine&lt;/span>(&lt;span style="color:#a6e22e">table&lt;/span>, &lt;span style="color:#a6e22e">item&lt;/span>, &lt;span style="color:#a6e22e">cost&lt;/span>, &lt;span style="color:#a6e22e">bold&lt;/span>) {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">styleItem&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {};
+&lt;span style="color:#a6e22e">styleItem&lt;/span>[&lt;span style="color:#a6e22e">DocumentApp&lt;/span>.&lt;span style="color:#a6e22e">Attribute&lt;/span>.&lt;span style="color:#a6e22e">HORIZONTAL_ALIGNMENT&lt;/span>] &lt;span style="color:#f92672">=&lt;/span>
+&lt;span style="color:#a6e22e">DocumentApp&lt;/span>.&lt;span style="color:#a6e22e">HorizontalAlignment&lt;/span>.&lt;span style="color:#a6e22e">LEFT&lt;/span>;
+&lt;span style="color:#a6e22e">styleItem&lt;/span>[&lt;span style="color:#a6e22e">DocumentApp&lt;/span>.&lt;span style="color:#a6e22e">Attribute&lt;/span>.&lt;span style="color:#a6e22e">ITALIC&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>;
+&lt;span style="color:#a6e22e">styleItem&lt;/span>[&lt;span style="color:#a6e22e">DocumentApp&lt;/span>.&lt;span style="color:#a6e22e">Attribute&lt;/span>.&lt;span style="color:#a6e22e">BOLD&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">bold&lt;/span>;
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">styleCost&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {};
+&lt;span style="color:#a6e22e">styleCost&lt;/span>[&lt;span style="color:#a6e22e">DocumentApp&lt;/span>.&lt;span style="color:#a6e22e">Attribute&lt;/span>.&lt;span style="color:#a6e22e">HORIZONTAL_ALIGNMENT&lt;/span>]
+&lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">DocumentApp&lt;/span>.&lt;span style="color:#a6e22e">HorizontalAlignment&lt;/span>.&lt;span style="color:#a6e22e">RIGHT&lt;/span>;
+&lt;span style="color:#a6e22e">styleCost&lt;/span>[&lt;span style="color:#a6e22e">DocumentApp&lt;/span>.&lt;span style="color:#a6e22e">Attribute&lt;/span>.&lt;span style="color:#a6e22e">ITALIC&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>;
+&lt;span style="color:#a6e22e">styleItem&lt;/span>[&lt;span style="color:#a6e22e">DocumentApp&lt;/span>.&lt;span style="color:#a6e22e">Attribute&lt;/span>.&lt;span style="color:#a6e22e">BOLD&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">bold&lt;/span>;
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">tr&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>.&lt;span style="color:#a6e22e">appendTableRow&lt;/span>();
+&lt;span style="color:#a6e22e">tr&lt;/span>.&lt;span style="color:#a6e22e">appendTableCell&lt;/span>().&lt;span style="color:#a6e22e">setText&lt;/span>(&lt;span style="color:#a6e22e">item&lt;/span>).&lt;span style="color:#a6e22e">getChild&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>).&lt;span style="color:#a6e22e">setAttributes&lt;/span>(&lt;span style="color:#a6e22e">styleItem&lt;/span>);
+&lt;span style="color:#a6e22e">tr&lt;/span>.&lt;span style="color:#a6e22e">appendTableCell&lt;/span>().&lt;span style="color:#a6e22e">setText&lt;/span>(&lt;span style="color:#a6e22e">cost&lt;/span>).&lt;span style="color:#a6e22e">getChild&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>).&lt;span style="color:#a6e22e">setAttributes&lt;/span>(&lt;span style="color:#a6e22e">styleCost&lt;/span>);
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="google-ドキュメントから-pdf-ファイルを作成">Google ドキュメントから PDF ファイルを作成&lt;/h3>
+&lt;p>最後に作成した Google ドキュメントから PDF ファイルを作成します。
+Google ドキュメントは標準で PDF 形式でのエクスポートに対応しているので、
+基本的にはそれを使うだけです。&lt;/p>
+&lt;p>下記では、
+作成した Google ドキュメントと同じディレクトリに指定のファイル名で PDF ファイルを作成するため、
+テンプレートファイルをコピーするときに取得した &lt;code>File&lt;/code> オブジェクトから &lt;a href="https://developers.google.com/apps-script/reference/drive/file#getParents()">&lt;code>getParents()&lt;/code>&lt;/a> API を使ってディレクトリを取得しています。&lt;/p>
+&lt;p>&lt;code>DriveApp&lt;/code> クラス経由で直接 &lt;code>createFile&lt;/code> を呼び出すと（folder == null のケース）、
+Goodle ドライブのトップディレクトリに PDF ファイルが作成されます。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#75715e">// copyId, copyFile は前項参照
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">outFolder&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">copyFile&lt;/span>.&lt;span style="color:#a6e22e">getParents&lt;/span>().&lt;span style="color:#a6e22e">hasNext&lt;/span>() &lt;span style="color:#f92672">?&lt;/span> &lt;span style="color:#a6e22e">copyFile&lt;/span>.&lt;span style="color:#a6e22e">getParents&lt;/span>().&lt;span style="color:#a6e22e">next&lt;/span>() &lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>
+&lt;span style="color:#a6e22e">writePDF&lt;/span>(&lt;span style="color:#a6e22e">copyId&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;請求書.pdf&amp;#39;&lt;/span>, &lt;span style="color:#a6e22e">outFolder&lt;/span>);
+&lt;span style="color:#75715e">/**
+&lt;/span>&lt;span style="color:#75715e"> * Google Docs のドキュメントを PDF 形式で出力する
+&lt;/span>&lt;span style="color:#75715e"> */&lt;/span>
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">writePDF&lt;/span>(&lt;span style="color:#a6e22e">docId&lt;/span>, &lt;span style="color:#a6e22e">filename&lt;/span>, &lt;span style="color:#a6e22e">folder&lt;/span>) {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">url&lt;/span> &lt;span style="color:#f92672">=&lt;/span>
+&lt;span style="color:#e6db74">&amp;#39;https://docs.google.com/feeds/download/documents/export/Export?id=&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">docId&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&amp;amp;exportFormat=pdf&amp;#39;&lt;/span>
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">options&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;span style="color:#a6e22e">headers&lt;/span>&lt;span style="color:#f92672">:&lt;/span> {
+&lt;span style="color:#a6e22e">Authorization&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Bearer &amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">ScriptApp&lt;/span>.&lt;span style="color:#a6e22e">getOAuthToken&lt;/span>()
+},
+&lt;span style="color:#a6e22e">muteHttpExceptions&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span>
+}
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">doc&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">UrlFetchApp&lt;/span>.&lt;span style="color:#a6e22e">fetch&lt;/span>(&lt;span style="color:#a6e22e">url&lt;/span>, &lt;span style="color:#a6e22e">options&lt;/span>).&lt;span style="color:#a6e22e">getBlob&lt;/span>()
+&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">folder&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#66d9ef">null&lt;/span>) {
+&lt;span style="color:#a6e22e">DriveApp&lt;/span>.&lt;span style="color:#a6e22e">createFile&lt;/span>(&lt;span style="color:#a6e22e">doc&lt;/span>).&lt;span style="color:#a6e22e">setName&lt;/span>(&lt;span style="color:#a6e22e">filename&lt;/span>)
+} &lt;span style="color:#66d9ef">else&lt;/span> {
+&lt;span style="color:#a6e22e">folder&lt;/span>.&lt;span style="color:#a6e22e">createFile&lt;/span>(&lt;span style="color:#a6e22e">doc&lt;/span>).&lt;span style="color:#a6e22e">setName&lt;/span>(&lt;span style="color:#a6e22e">filename&lt;/span>)
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="apps-script-の制限">Apps Script の制限&lt;/h3>
+&lt;p>Apps Script を実行する上で、
+いくつか制限が設定されています。&lt;/p>
+&lt;p>詳細は &lt;a href="https://developers.google.com/apps-script/guides/services/quotas">Quotas for Google Services&lt;/a> にありますが、
+通常の gmail.com アカウントで実行していて抵触したのは次の２つ。&lt;/p>
+&lt;ul>
+&lt;li>スクリプトの連続実行時間は6分まで。&lt;/li>
+&lt;li>Google ドキュメントを新規作成できるのは250件/日まで。&lt;/li>
+&lt;/ul>
+&lt;p>Google ドキュメントで作ったテンプレートをコピーして文字列を置換したり PDF ファイルを作成するのは数秒単位で時間がかかるので、
+出力する請求書が数十枚程度になった時点で最初の制限に抵触します。&lt;/p>
+&lt;p>私の場合はスプレッドシートからデータを読み込む部分はさほど時間がかからなかったので、
+とりあえずデータはすべて読み込むけれど、
+出力は分割することで対処しました。
+具体的には実行時にダイアログを表示して、
+処理対象の保護者IDの範囲を指定できるようにして、
+その範囲の保護者のみ処理対象としました。&lt;/p></description></item></channel></rss>

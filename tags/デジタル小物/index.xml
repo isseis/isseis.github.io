@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>デジタル小物 on 或曰</title><link>https://blog2.issei.org/tags/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E5%B0%8F%E7%89%A9/</link><description>Recent content in デジタル小物 on 或曰</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 06 Oct 2020 10:30:00 +0200</lastBuildDate><atom:link href="https://blog2.issei.org/tags/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E5%B0%8F%E7%89%A9/index.xml" rel="self" type="application/rss+xml"/><item><title>タブレット Galaxy Tab S6 修理</title><link>https://blog2.issei.org/2020/10/06/tablet_reparatur/</link><pubDate>Tue, 06 Oct 2020 10:30:00 +0200</pubDate><guid>https://blog2.issei.org/2020/10/06/tablet_reparatur/</guid><description>&lt;p>Android タブレット Galaxy Tab S6 の画面を割ってしまったので、
+修理に出しました。&lt;/p>
+&lt;p>机の上で重たいものを持っているときに、
+うっかりタブレットの上に肘をついてしまい、
+その圧力で画面が破損。
+そんなに力を加えたつもりはなかったのですが、
+肘の先ということで圧力が集中したんでしょうね。&lt;/p>
+&lt;p>調べたところ Recommerce AG 社がよさそうなので、
+ここに修理を依頼してみました。
+アップル、サムソンの認定パートナーで、
+見積もりから集荷依頼までオンラインで完結します。&lt;/p>
+&lt;p>参考: &lt;a href="https://www.verkaufen.ch/reparieren">Apple und Samsung Reparaturen&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>Web で機種と修理項目を選択すると料金が表示されるので、クレジットカードで支払い。&lt;/li>
+&lt;li>タブレットを梱包し、ダウンロードした発送伝票を貼り付ける。&lt;/li>
+&lt;li>郵便受けのオープンスペースに梱包済みタブレットを置いておくと、郵便局員が回収してくれる。&lt;/li>
+&lt;/ol>
+&lt;p>これでタブレットが回収され、修理後に郵送されてきました。
+人間との直接のやり取りが一切なく、手続きも迅速。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>項目&lt;/th>
+&lt;th style="text-align:right">費用&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>ディスプレイ交換&lt;/td>
+&lt;td style="text-align:right">249 SFr&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>梱包配送手数料&lt;/td>
+&lt;td style="text-align:right">14 SFr&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>合計&lt;/strong>&lt;/td>
+&lt;td style="text-align:right">&lt;strong>263 SFr&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>スマートウォッチ 2020年夏</title><link>https://blog2.issei.org/2020/08/21/smartwatch/</link><pubDate>Fri, 21 Aug 2020 09:04:00 +0200</pubDate><guid>https://blog2.issei.org/2020/08/21/smartwatch/</guid><description>&lt;p>いくつか Android スマートフォンと連携するスマートウォッチを使ってきましたが、
+現在は HUAWEI の &lt;a href="https://consumer.huawei.com/jp/wearables/watch-gt-2e/">WATCH GT2e&lt;/a> に落ち着いています。&lt;/p>
+&lt;p>スマートウォッチとして非常にバランスが良い製品だと思いますが、
+HUAWEI はアメリカの輸出管理規制対象となっているため Android スマートフォンと連携させるだけでも手間がかかり、
+あまりお薦めできない状態になっているのが残念です（&lt;a href="#huawei-watch-gt2e-%E3%82%92-android-%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">設定方法&lt;/a>）。&lt;/p>
+&lt;p>&lt;strong>使ってきたスマートウォッチ&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>メーカー&lt;/th>
+&lt;th>機種名&lt;/th>
+&lt;th>発売日&lt;/th>
+&lt;th>OS&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>LG&lt;/td>
+&lt;td>&lt;a href="https://www.lg.com/jp/mobile-accessories/lg-W100">W100 G Watch&lt;/a>&lt;/td>
+&lt;td>2014年06月&lt;/td>
+&lt;td>Android Wear (&lt;a href="https://wearos.google.com/">Wear OS&lt;/a> の旧名)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ASUS&lt;/td>
+&lt;td>&lt;a href="https://www.asus.com/jp/ZenWatch/ASUS-ZenWatch-3-WI503Q/">ZenWatch 3&lt;/a>&lt;/td>
+&lt;td>2016年12月&lt;/td>
+&lt;td>&lt;a href="https://wearos.google.com/">Wear OS&lt;/a> by Google&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CASIO&lt;/td>
+&lt;td>&lt;a href="https://wsd.casio.com/jp/ja/wsd-f20/lineup.html">PROTREK Smart WSD-F20&lt;/a>&lt;/td>
+&lt;td>2017年04月&lt;/td>
+&lt;td>&lt;a href="https://wearos.google.com/">Wear OS&lt;/a> by Google&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SAMSUNG&lt;/td>
+&lt;td>&lt;a href="https://www.galaxymobile.jp/galaxy-watch-active2/">Galaxy Watch Active 2&lt;/a> (40mm)&lt;/td>
+&lt;td>2019年11月&lt;/td>
+&lt;td>&lt;a href="https://www.tizen.org">Tizen&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>HUAWEI&lt;/td>
+&lt;td>&lt;a href="https://consumer.huawei.com/jp/wearables/watch-gt-2e/">WATCH GT2e&lt;/a>&lt;/td>
+&lt;td>2020年04月&lt;/td>
+&lt;td>&lt;a href="https://www.huawei.com/minisite/liteos/en/index.html">LiteOS&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="製品の感想">製品の感想&lt;/h2>
+&lt;h3 id="過去の製品">過去の製品&lt;/h3>
+&lt;h4 id="lg-w100-g-watch">LG &lt;a href="https://www.lg.com/jp/mobile-accessories/lg-W100">W100 G Watch&lt;/a>&lt;/h4>
+&lt;p>&lt;a href="https://www.lg.com/jp/mobile-accessories/lg-W100">&lt;img src="https://www.lg.com/jp/images/wearable/W100/gallery/hd_009.jpg" alt="LG W100 G Watch">&lt;/a>&lt;/p>
+&lt;p>Google は2014年にスマートウォッチ用の OS として Android Wear を公開しました。
+その数カ月後に会社から LG の &lt;a href="https://www.lg.com/jp/mobile-accessories/lg-W100">W100 G Watch&lt;/a> をもらったので試してみましたが、
+動作は遅く操作や充電方法も洗練されておらず。
+スマートウォッチ向けにアプリを作成する開発者向けの試験デバイスとしてはともかく、
+実用には厳しいという印象でした。&lt;/p>
+&lt;p>その後もしばらく頑張って使ってみたものの、
+基本的に開発用として日常では使わないことに。&lt;/p>
+&lt;h4 id="asus-zenwatch-3">ASUS &lt;a href="https://www.asus.com/jp/ZenWatch/ASUS-ZenWatch-3-WI503Q/">ZenWatch 3&lt;/a>&lt;/h4>
+&lt;p>&lt;a href="https://www.asus.com/jp/ZenWatch/ASUS-ZenWatch-3-WI503Q/gallery/">&lt;img src="https://www.asus.com/media/global/gallery/Ff38vDEczzKfOXHV_setting_fff_1_90_end_500.png" alt="ASUS Zen Watch 3">&lt;/a>&lt;/p>
+&lt;p>四角ではなく丸形フェイスで、見た目が普通の腕時計に近いタイプです。
+見た目が良いこともあり、これは実用品として普段から使いました。&lt;/p>
+&lt;p>通知機能が便利です。
+スマートフォンを使っているとしばしば通知が届きますが、
+スマートフォンで音を鳴らさずスマートウォッチを振動させることで、
+周囲の注意をひくことなく通知を受けることができます。
+また手元に目をやるだけで内容を確認でき、
+すぐに対応したほうが良い内容か、
+後回しにするべきかを判断できます。
+スマートフォンに手を伸ばす機会が減りました。&lt;/p>
+&lt;p>なおアプリケーションは最初はいくつか試してみましたが、
+動作が遅く積極的に使いたいアプリケーションもなかったため、
+最終的にはほとんど使いませんでした。
+通知と時刻を確認する道具として使っていました。&lt;/p>
+&lt;ul>
+&lt;li>Good
+&lt;ul>
+&lt;li>Android スマートフォンに届いた通知を確認できる&lt;/li>
+&lt;li>普段遣いできる見た目&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Bad
+&lt;ul>
+&lt;li>バッテリーは毎日充電が必要&lt;/li>
+&lt;li>晴れた屋外だと視認性が悪い（時刻を見たい時）&lt;/li>
+&lt;li>動作が遅く、アプリケーションは使う気にならない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Wear OS バージョンアップ後に動作が極端に遅くなったため使用を中止。
+その後、しばらくは通常の腕時計を使っていました。&lt;/p>
+&lt;h3 id="現行製品-1">現行製品 (1)&lt;/h3>
+&lt;h4 id="casio-protrek-smart-wsd-f20">CASIO &lt;a href="https://wsd.casio.com/jp/ja/wsd-f20/lineup.html">PROTREK Smart WSD-F20&lt;/a>&lt;/h4>
+&lt;p>&lt;a href="https://wsd.casio.com/jp/ja/wsd-f20/">&lt;img src="https://wsd.casio.com/assets_v3/img/wsd-f20/lineup/photo_rg.jpg" alt="CASIO PROTREK Smart WSD-F20">&lt;/a>&lt;/p>
+&lt;p>アウトドア用の製品。
+防水・耐衝撃性を備えているのに加えて、
+&lt;a href="https://wsd.casio.com/jp/ja/wsd-f20/design/">二層液晶ディスプレイ&lt;/a>を採用していて、
+太陽光下でもくっきりと読める状態で時刻を常時表示できます。&lt;/p>
+&lt;p>かなりゴツいので普段は使わず、
+ハイキングやスキーの際に使っていました。
+スキーの際には、クロスバンドに交換してジャケットの上から装着していましたが、
+これだと滑っている最中に通知が来た場合でもすぐに見られて便利でした。&lt;/p>
+&lt;p>なお、最後はスキーで滑っている最中にバンドが外れて時計を紛失してしまいました。&lt;/p>
+&lt;ul>
+&lt;li>Good
+&lt;ul>
+&lt;li>Android スマートフォンに届いた通知を確認できる&lt;/li>
+&lt;li>アウトドアでも時刻を見やすい&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Bad
+&lt;ul>
+&lt;li>大きく見た目も派手なので、普段遣いには向かない&lt;/li>
+&lt;li>バッテリーがもつのは2日程度&lt;/li>
+&lt;li>充電に使う専用ケーブルが外れやすい&lt;/li>
+&lt;li>動作が遅く、アプリケーションは使う気にならない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="市場の変革">市場の変革&lt;/h3>
+&lt;ul>
+&lt;li>健康管理（心拍数モニタなど）&lt;/li>
+&lt;li>Google Wear OS 以外の OS の台頭&lt;/li>
+&lt;/ul>
+&lt;p>2017年9月に Apple が心拍数モニタを搭載した Apple Watch Series 3 を発売し、
+それ以降、
+健康管理がスマートウォッチにおける重要機能の一つになりました。&lt;/p>
+&lt;p>また Apple Watch が市場の過半数を占める一方で、
+大手では Google の Wear OS を使わずに自社開発の OS を採用するメーカーも増えてきました。
+Samsung は比較的早い時期からスマートウォッチ製品を出してきましたが、
+採用する OS を途中で Wear OS から自社開発の Tizen に変更しています。&lt;/p>
+&lt;h3 id="現行製品-2">現行製品 (2)&lt;/h3>
+&lt;h4 id="samsung-galaxy-watch-active-2">SAMSUNG &lt;a href="https://www.galaxymobile.jp/galaxy-watch-active2/">Galaxy Watch Active 2&lt;/a>&lt;/h4>
+&lt;p>&lt;a href="https://www.galaxymobile.jp/galaxy-watch-active2/">&lt;img src="https://www.galaxymobile.jp/galaxy-watch-active2/images/galaxy-watch-active2-water-proof-cloud-silver.png" alt="Galaxy Watch Active 2">&lt;/a>&lt;/p>
+&lt;p>個人で購入したスマートウォッチでは、
+初めて Google Wear OS を 搭載していない機種です。&lt;/p>
+&lt;p>Google Wear OS 以外の市場シェアも増えてきたので試しておきたいと思ったのと、
+スマートウォッチではほとんどサードパーティ製のアプリケーションを使っていないので Were OS にこだわる必要もないだろうということで買ってみました。&lt;/p>
+&lt;p>結論としては、私の用途では Tizen で全く問題ありませんでした。
+Wear OS よりも動作が機敏で、操作感は良いです。&lt;/p>
+&lt;p>&lt;a href="https://www.galaxymobile.jp/galaxy-watch-active2/">Galaxy Watch Active 2&lt;/a> は Samsung のスマートウォッチの中では、
+特にスポーツ向けを意識した機種です。
+標準でついてくるシリコン製のベルトは変わったデザインですが、
+つけ心地は良く運動中もズレにくい。
+スポーツ以外の機能でも妥協しておらず、
+一般的な天気予報やカレンダーのスマートフォンとの同期といった機能は一通り備えており、
+NFCでの非接触型決済にも対応しています。&lt;/p>
+&lt;ul>
+&lt;li>Good
+&lt;ul>
+&lt;li>最近のスマートウォッチのトレンドに合致した機能
+&lt;ul>
+&lt;li>心拍数モニタ&lt;/li>
+&lt;li>スポーツ・アクティビティ記録&lt;/li>
+&lt;li>NFC による非接触型決済&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>動作が機敏&lt;/li>
+&lt;li>標準アプリケーションが豊富で、特に Samsung 製のスマートフォンを使っているとデータの連携が行いやすい。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Bad
+&lt;ul>
+&lt;li>バッテリーは毎日充電が必要&lt;/li>
+&lt;li>アクティビティ検出の精度が低く、歩数などが多く出がち&lt;/li>
+&lt;li>サードパーティのアプリケーションは少ない&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>NFC を使った非接触型決済には期待していましたが、
+残念ながらあまり使いませんでした。&lt;/p>
+&lt;p>定期的に腕時計側で PIN コード入力を要求されて面倒なのと、
+決済端末の形や位置によっては腕時計をタッチするのが難しいためです。
+スマートフォンを持ち歩いているなら、
+そちらを指紋認証でアンロックした上で決済端末にタッチした方が早くて確実。&lt;/p>
+&lt;p>バッテリーが1.5日程度しかもたないため、
+毎日充電が必要です。
+充電も特に早いわけではないので、
+私は睡眠時に充電していました。
+そのため睡眠トラッキング機能はほとんど使えず。&lt;/p>
+&lt;h4 id="huawei-watch-gt2e">HUAWEI &lt;a href="https://consumer.huawei.com/jp/wearables/watch-gt-2e/">WATCH GT2e&lt;/a>&lt;/h4>
+&lt;p>&lt;img src="https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/wearables/watch-gt-2e/img/pc/huawei-watch-gt-2e-pc-2-weeks-battery-life-right.png" alt="HUAWEI WATCH GT2e">&lt;/p>
+&lt;p>これも Google Wear OS を搭載せず、
+独自開発の LiteOS を使っています。&lt;/p>
+&lt;p>最大の特徴は、バッテリーライフが驚異的に長いことです。
+公称二週間。
+GPSを有効にして長時間ワークアウトしていると短くなりますが、
+それでも数日に一度、
+シャワーを浴びている最中に充電しておけば十分です。
+睡眠中に充電する必要がないため、睡眠トラッキング機能も実用的に使えます。
+個人的には、眠りが浅くなったタイミングで起こしてくれるスマートアラームが気に入っています。&lt;/p>
+&lt;p>最近のスマートウォッチに要求される基本的な機能、
+スマートフォンに送られてきた通知を見たり、
+心拍数を記録するといった機能は一通り揃っています。&lt;/p>
+&lt;p>ただし致命的なのが、
+HUAWEI はアメリカの輸出管理規制対象となっているため、
+単にスマートフォンと連携して使うだけでも初期設定が面倒で、
+かつセキュリティ上のリスクが避けられない点です（&lt;a href="#huawei-watch-gt2e-%E3%82%92-android-%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B">設定方法&lt;/a>）。&lt;/p>
+&lt;p>また Sumsung の &lt;a href="https://www.galaxymobile.jp/galaxy-watch-active2/">Galaxy Watch Active 2&lt;/a> と比べるとアプリケーション面が弱く、
+たとえばスマートフォンのカレンダーに登録してあるスケジュールをスマートウォッチで見ることはできません（カレンダーの通知を受け取ることはできる）。
+通知も表示内容が限られ、
+返信などのアクションは行なえません。&lt;/p>
+&lt;ul>
+&lt;li>Good
+&lt;ul>
+&lt;li>バッテリー寿命が長い（公称二週間）&lt;/li>
+&lt;li>最近のスマートウォッチのトレンドに合致した機能
+&lt;ul>
+&lt;li>心拍数モニタ&lt;/li>
+&lt;li>スポーツ・アクティビティ記録&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>睡眠トラッキングと、それに基づいて眠りが浅い時間に起こす目覚まし機能&lt;/li>
+&lt;li>動作が機敏&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Bad
+&lt;ul>
+&lt;li>&lt;strong>スマートフォンに Google Play Store 以外からアプリケーションをインストールする必要がある&lt;/strong>&lt;/li>
+&lt;li>アプリケーションは少ない&lt;/li>
+&lt;li>NFC による非接触型決済なし&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>スマートウォッチは通知を見られれば十分、
+複雑な処理はスマートフォンを取り出すという使い方であれば相性が良いです。
+バッテリー持ちが短くなっても豊富な機能が必要には &lt;a href="https://www.galaxymobile.jp/galaxy-watch-active2/">Galaxy Watch Active 2&lt;/a> の方が合っています。&lt;/p>
+&lt;h2 id="huawei-watch-gt2e-を-android-スマートフォンで使用する">HUAWEI WATCH GT2e を Android スマートフォンで使用する&lt;/h2>
+&lt;h3 id="背景">背景&lt;/h3>
+&lt;p>HUAWEI のスマートフォンを新しい Android 携帯で使うには、
+やや面倒な初期設定を行い、
+セキュリティ上のリスクを引き受ける必要があります。&lt;/p>
+&lt;p>スマートウォッチを Android スマートフォンと連携させるためには、
+通常、スマートフォン側に次のアプリケーションが必要になります。&lt;/p>
+&lt;ol>
+&lt;li>スマートフォンの基本情報（通知や連絡先など）をスマートウォッチからアクセスできるようにする&lt;/li>
+&lt;li>スマートフォンからスマートウォッチの情報にアクセスできるようにする&lt;/li>
+&lt;/ol>
+&lt;p>HUAWEI のスマートウォッチでは、
+&lt;a href="https://play.google.com/store/apps/details?id=com.huawei.hwid">Huawei モバイルサービス&lt;/a> と &lt;a href="https://play.google.com/store/apps/details?id=com.huawei.health">Huawei Health&lt;/a> がこの役割を担います。&lt;/p>
+&lt;p>通常であれば &lt;a href="https://play.google.com/store">Google Play ストア&lt;/a> からインストールして終了ですが、
+現在 HUAWEI がアメリカの輸出管理規制対象となっているため Google Play ストアで最新版を公開することができません。
+そのため、Google Play ストアにあるのは HUAWEI WATCH GT2e に未対応の古いバージョンのみです。&lt;/p>
+&lt;h3 id="設定方法">設定方法&lt;/h3>
+&lt;p>有害なアプリから端末を保護するため、
+Android スマートフォンでアプリケーションをインストールできるのは、
+標準では Google Play ストアと端末メーカーがプリインストールしたアプリストア、
+たとえば Samsung 端末であれば &lt;a href="https://www.galaxymobile.jp/apps/galaxy-store/">Galaxy Store&lt;/a> のみです。&lt;/p>
+&lt;p>スマートフォンでの設定を変更して &lt;a href="https://play.google.com/store/apps/details?id=com.huawei.hwid">Huawei モバイルサービス&lt;/a> と &lt;a href="https://play.google.com/store/apps/details?id=com.huawei.health">Huawei Health&lt;/a> を直接インストールすることもできますが、
+インストール後にアップデートが配信されることを考えると、
+HUAWEI のアプリストア &lt;a href="https://consumer.huawei.com/jp/mobileservices/appgallery/">HUAWEI AppGallery&lt;/a> をインストールして、
+そのアプリスタ経由で &lt;a href="https://play.google.com/store/apps/details?id=com.huawei.hwid">Huawei モバイルサービス&lt;/a> と &lt;a href="https://play.google.com/store/apps/details?id=com.huawei.health">Huawei Health&lt;/a> をインストールしてするのが賢明です。&lt;/p>
+&lt;p>Android 8 以降で外部（Google Play ストア以外）から提供されるアプリケーションをインストールする場合、
+その &lt;em>インストールに使うアプリケーション&lt;/em> が許可リストに登録する必要があります。&lt;/p>
+&lt;p>参考: &lt;a href="https://developers-jp.googleblog.com/2017/09/making-it-safer-to-get-apps-on-android-o.html">Android O でもっと安全にアプリを入手できるようにする&lt;/a>&lt;/p>
+&lt;p>したがって、
+たとえば Google Chrome を使って &lt;a href="https://consumer.huawei.com/jp/mobileservices/appgallery/">HUAWEI AppGallery&lt;/a> のアプリケーションをダウンロード・インストールする場合、
+次のような手順になります。&lt;/p>
+&lt;ol>
+&lt;li>Google Chrome を許可リストに登録&lt;/li>
+&lt;li>Google Chrome を使って &lt;a href="https://consumer.huawei.com/jp/mobileservices/appgallery/">HUAWEI AppGallery&lt;/a> のアプリケーション（APKファイル）をダウンロード&lt;/li>
+&lt;li>ダウンロード終了後、Chrome を利用してダウンロードした APK ファイルを実行&lt;/li>
+&lt;li>&lt;a href="https://consumer.huawei.com/jp/mobileservices/appgallery/">HUAWEI AppGallery&lt;/a> がインストールされる&lt;/li>
+&lt;li>Coogle Chrome を許可リストから削除
+&lt;ul>
+&lt;li>そのまま登録しておくと、今後 Google Chrome 経由で誤って有害なアプリをダウンロード・インストールする可能性があるため&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="https://consumer.huawei.com/jp/mobileservices/appgallery/">HUAWEI AppGallery&lt;/a> を許可リストに登録&lt;/li>
+&lt;li>&lt;a href="https://consumer.huawei.com/jp/mobileservices/appgallery/">HUAWEI AppGallery&lt;/a> で &lt;a href="https://play.google.com/store/apps/details?id=com.huawei.hwid">Huawei モバイルサービス&lt;/a> と &lt;a href="https://play.google.com/store/apps/details?id=com.huawei.health">Huawei Health&lt;/a> を検索してインストール&lt;/li>
+&lt;li>（オプション）&lt;a href="https://consumer.huawei.com/jp/mobileservices/appgallery/">Huawei AppGallery&lt;/a> で自動更新を有効にする&lt;/li>
+&lt;/ol>
+&lt;h3 id="セキュリティリスク">セキュリティリスク&lt;/h3>
+&lt;p>&lt;a href="https://consumer.huawei.com/jp/mobileservices/appgallery/">HUAWEI AppGallery&lt;/a> を許可リストに登録してある状態のため、
+このアプリストア経由で有害なアプリをダウンロード・インストールしてしまうリスクは残ります。
+万が一 HUAWEI が有害な変更を加えた &lt;a href="https://play.google.com/store/apps/details?id=com.huawei.hwid">Huawei モバイルサービス&lt;/a> や &lt;a href="https://play.google.com/store/apps/details?id=com.huawei.health">Huawei Health&lt;/a> アプリを配信した場合、
+Google のチェックなく自分のスマートフォンにインストールすることになります。&lt;/p>
+&lt;p>この場合でも Google Play プロテクトを有効にしておくと、
+有害な可能性のあるアプリを検出できる可能性があります。&lt;/p>
+&lt;p>参考: &lt;a href="https://support.google.com/googleplay/answer/2812853">Google Play プロテクトを使用して有害なアプリから保護する&lt;/a>&lt;/p>
+&lt;h2 id="スマートでない腕時計">スマートでない腕時計&lt;/h2>
+&lt;p>スマートでない腕時計も、まだ稀に使っています。&lt;/p>
+&lt;h3 id="アストロン-8xシリーズ-デュアルタイムhttpswwwseikowatchescomjp-janews20150714_01-sbxb041br">&lt;a href="https://www.seikowatches.com/jp-ja/news/20150714_01">アストロン 8Xシリーズ デュアルタイム&lt;/a> SBXB041&lt;br>&lt;/h3>
+&lt;p>日本の誇る時計メーカー、セイコーが現代科学技術を詰め込んで作った腕時計。
+GPS 内蔵で世界中どこでも正確、
+太陽光充電なので電池交換不要で半永久的に稼働というのが売り文句のアナログ時計。&lt;/p>
+&lt;p>風防がクリアで反射も少なく非常に盤面が見やすいです。
+理系心をくすぐる科学技術の塊としても、
+純粋に時間を知る道具としても優れた一品だと思います。&lt;/p>
+&lt;h3 id="-slimline-moonphase-manufacture-fc-705n4s6httpsfrederiqueconstantcomcollectionsslimline-moonphaseproductsslimline-moonphase-fc-705n4s6">&lt;a href="https://frederiqueconstant.com/collections/slimline-moonphase/products/slimline-moonphase-fc-705n4s6"> SLIMLINE MOONPHASE MANUFACTURE FC-705N4S6&lt;/a>&lt;/h3>
+&lt;p>スイスのジュネーブ州郊外に本社がある Frédérique Constant による機械式時計。
+創業は1988年ですが、時計業界だと「新興メーカー」扱い。&lt;/p>
+&lt;p>月齢が表示できる一方で、秒針や曜日の表示はなし。
+細かい時間を気にするような場面では使うなという意思を感じます。
+見た目は美しいですが、実用品というより宝飾品ですね。&lt;/p></description></item></channel></rss>

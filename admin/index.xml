@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>管理用 on 或曰</title><link>https://blog2.issei.org/admin/</link><description>Recent content in 管理用 on 或曰</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 08 Dec 2020 08:11:47 +0100</lastBuildDate><atom:link href="https://blog2.issei.org/admin/index.xml" rel="self" type="application/rss+xml"/><item><title>コメント投稿システム</title><link>https://blog2.issei.org/admin/comment/</link><pubDate>Wed, 09 Dec 2020 21:20:41 +0100</pubDate><guid>https://blog2.issei.org/admin/comment/</guid><description>&lt;h2 id="getform">getform&lt;/h2>
+&lt;p>&lt;a href="https://getform.io/">getform&lt;/a> をバックエンドに使用。&lt;/p>
+&lt;ol>
+&lt;li>コンソールから新規フォームを作成&lt;/li>
+&lt;li>endpoint が取得できるので、それを埋め込んだ form を作る。&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;a href="https://app.getform.io/docs">公式ドキュメント&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="recaptcha-v3">reCAPTCHA v3&lt;/h2>
+&lt;p>getform の認証に使用。
+必要な変更内容は Git リポジトリの &lt;a href="https://github.com/isseis/blog-hugo/commit/ac50a42d9a99ae4f6712f60168d01362de893680">commit&lt;/a> を参照。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://developers.google.com/recaptcha/docs/v3">公式ドキュメント&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.google.com/recaptcha/admin/site/432680470">admin console&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>継続的デプロイメント</title><link>https://blog2.issei.org/admin/cd/</link><pubDate>Wed, 09 Dec 2020 00:29:29 +0100</pubDate><guid>https://blog2.issei.org/admin/cd/</guid><description>&lt;p>GitHub にコンテンツを push すると、
+自動的に hugo を使ってサイトをビルドし、
+ビルドされたサイトを Firebase Hosting にデプロイする。&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://console.firebase.google.com/">Firebase コンソール&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.github.com/en/actions">GitHub Actions&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="firebase">Firebase&lt;/h2>
+&lt;h3 id="firebase-でホスティング先を作成する">Firebase でホスティング先を作成する&lt;/h3>
+&lt;p>&lt;a href="http://console.firebase.google.com/">Firebase コンソール&lt;/a>&lt;/p>
+&lt;ol>
+&lt;li>プロジェクトを追加&lt;/li>
+&lt;li>プロジェクト内で Hosting を追加。&lt;/li>
+&lt;/ol>
+&lt;h3 id="git-リポジトリに-firebase-ホスティング情報を登録">Git リポジトリに Firebase ホスティング情報を登録&lt;/h3>
+&lt;p>&lt;a href="https://firebase.google.com/docs/cli">Firebase CLI&lt;/a> をインストールしておく。&lt;/p>
+&lt;p>blog のトップディレクトリで firebase の設定ファイルを作成。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">firebase login
+firebase init
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>これで次のファイルがローカルに作成されるので、
+git リポジトリに追加する。&lt;/p>
+&lt;p>.firebaserc&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yml" data-lang="yml">{
+&lt;span style="color:#f92672">&amp;#34;projects&amp;#34;: &lt;/span>{
+&lt;span style="color:#f92672">&amp;#34;default&amp;#34;: &lt;/span>&lt;span style="color:#e6db74">&amp;#34;blog-hugo-issei&amp;#34;&lt;/span>
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>firebase.json&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yml" data-lang="yml">{
+&lt;span style="color:#f92672">&amp;#34;hosting&amp;#34;: &lt;/span>{
+&lt;span style="color:#f92672">&amp;#34;public&amp;#34;: &lt;/span>&lt;span style="color:#e6db74">&amp;#34;public&amp;#34;&lt;/span>,
+&lt;span style="color:#f92672">&amp;#34;ignore&amp;#34;: &lt;/span>[
+&lt;span style="color:#e6db74">&amp;#34;firebase.json&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;**/.*&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;**/node_modules/**&amp;#34;&lt;/span>
+]
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>コマンドラインから &lt;code>firebase deploy --non-interactive&lt;/code> と実行することで、
+&lt;code>public&lt;/code> ディレクトリ以下をデプロイできることを確認しておく。&lt;/p>
+&lt;h2 id="github-actions">GitHub Actions&lt;/h2>
+&lt;p>GitHub Actions のワークフローは、
+実際には .github/workflows ディレクトリ下に置いた yml ファイルで制御される。&lt;/p>
+&lt;p>エディタで作成したものを直接 GitHub リポジトリに push しても良いが、
+Web で雛形を作る機能がある。&lt;/p>
+&lt;ol>
+&lt;li>GitHub のコンソールからプロジェクトを選択し、Action タブを開く。&lt;/li>
+&lt;li>New workflow をクリックして、新規ワークフロー作成画面に。&lt;/li>
+&lt;li>set up a workflow yourself をクリックして .github/workflows/main.yml の編集画面に。&lt;/li>
+&lt;/ol>
+&lt;p>.github/workflows/main.yml&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yml" data-lang="yml">&lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Firebase&lt;/span>
+&lt;span style="color:#f92672">on&lt;/span>:
+&lt;span style="color:#f92672">push&lt;/span>:
+&lt;span style="color:#f92672">branches&lt;/span>:
+- &lt;span style="color:#ae81ff">master&lt;/span>
+&lt;span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab&lt;/span>
+&lt;span style="color:#f92672">workflow_dispatch&lt;/span>:
+&lt;span style="color:#f92672">jobs&lt;/span>:
+&lt;span style="color:#f92672">deploy&lt;/span>:
+&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-18.04&lt;/span>
+&lt;span style="color:#f92672">steps&lt;/span>:
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+&lt;span style="color:#f92672">with&lt;/span>:
+&lt;span style="color:#f92672">submodules&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span> &lt;span style="color:#75715e"># Fetch Hugo themes (true OR recursive)&lt;/span>
+&lt;span style="color:#f92672">fetch-depth&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#75715e"># Fetch all history for .GitInfo and .Lastmod&lt;/span>
+- &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Setup Hugo&lt;/span>
+&lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">peaceiris/actions-hugo@v2&lt;/span>
+&lt;span style="color:#f92672">with&lt;/span>:
+&lt;span style="color:#f92672">hugo-version&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;0.82.1&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">extended&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+- &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Build&lt;/span>
+&lt;span style="color:#f92672">run&lt;/span>: &lt;span style="color:#ae81ff">hugo --cleanDestinationDir --minify&lt;/span>
+- &lt;span style="color:#f92672">run&lt;/span>: &lt;span style="color:#ae81ff">cp public/index.xml public/feed.xml&lt;/span>
+- &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Deploy&lt;/span>
+&lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">FirebaseExtended/action-hosting-deploy@v0&lt;/span>
+&lt;span style="color:#f92672">with&lt;/span>:
+&lt;span style="color:#f92672">firebaseServiceAccount&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;${{ secrets.FIREBASE_SERVICE_ACCOUNT_BLOG_HUGO_ISSEI }}&amp;#34;&lt;/span>
+&lt;span style="color:#f92672">projectId&lt;/span>: &lt;span style="color:#ae81ff">blog-hugo-issei&lt;/span>
+&lt;span style="color:#f92672">channelId&lt;/span>: &lt;span style="color:#ae81ff">live&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="github-actions-for-hugohttpsgithubcompeaceirisactions-hugo">&lt;a href="https://github.com/peaceiris/actions-hugo">GitHub Actions for Hugo&lt;/a>&lt;/h3>
+&lt;p>Gi仮想マシンに Hugo をインストールする GitHub Action。
+使用するバージョンを指定するか、
+あるいは最新版を常に使う場合には &lt;code>latest&lt;/code> としておく。&lt;/p>
+&lt;p>このサイトでは SCSS を使っているので、
+SCSS 対応の hugo バイナリをインストールするために &lt;code>extended: true&lt;/code> と指定しておく。&lt;/p>
+&lt;h3 id="firebase-hosting-github-actionhttpsgithubcomfirebaseextendedaction-hosting-deploy">&lt;a href="https://github.com/FirebaseExtended/action-hosting-deploy">Firebase Hosting GitHub Action&lt;/a>&lt;/h3>
+&lt;p>仮想マシンから Firebase にファイルをデプロイする GitHub Action。
+Google 公式ではないが、Google の有志がメンテしている。&lt;/p>
+&lt;ol>
+&lt;li>GitHub から Firebase プロジェクトにアクセスするためのサービスアカウントを作成し、
+アカウントの JSON キーを GitHub リポジトリの encrypted secret に登録する。
+firebase CLI で次のコマンドを実行するだけで、一連の処理をしてくれる。
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">firebase init hosting:github
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>firebase CLI の出力メッセージに従って &lt;code>firebasesServiceActount&lt;/code> を設定。&lt;/li>
+&lt;li>合わせて &lt;code>projectId&lt;/code> を Firebase でホスティングするプロジェクトの ID にし、
+&lt;code>channelId: live&lt;/code> として本番環境へのデプロイを指示。&lt;/li>
+&lt;/ol></description></item><item><title>ポスト作成＆プレビュー環境の構築</title><link>https://blog2.issei.org/admin/blog-build-env/</link><pubDate>Tue, 08 Dec 2020 08:11:47 +0100</pubDate><guid>https://blog2.issei.org/admin/blog-build-env/</guid><description>&lt;h2 id="blog-環境構築">blog 環境構築&lt;/h2>
+&lt;h3 id="git-レポジトリ取得">git レポジトリ取得&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git clone git@github.com:isseis/blog-hugo.git
+git submodule init
+git submodule update
+cd blog-hugo
+git config pull.ff only
+git config user.mail  4515431+isseis@users.noreply.github.com
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="hugo-インストール">hugo インストール&lt;/h3>
+&lt;p>パッケージ
+&lt;a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">sudo dpkg -i hugo_0.79.0_Linux-64bit.deb
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>日記 on 或曰</title><link>https://blog2.issei.org/tags/%E6%97%A5%E8%A8%98/</link><description>Recent content in 日記 on 或曰</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Thu, 11 Feb 2021 19:31:20 +0100</lastBuildDate><atom:link href="https://blog2.issei.org/tags/%E6%97%A5%E8%A8%98/index.xml" rel="self" type="application/rss+xml"/><item><title>スポーツ休暇</title><link>https://blog2.issei.org/2021/02/11/sportsferien/</link><pubDate>Thu, 11 Feb 2021 19:31:20 +0100</pubDate><guid>https://blog2.issei.org/2021/02/11/sportsferien/</guid><description>&lt;p>私の村では来週から２週間「スポーツ休暇」として学校が休みになります。&lt;/p>
+&lt;p>例年であればスキーに行くところですが、
+covid-19 が収まっておらず、
+子供の間でも感染力が強いと想定される変異株が流行り始めていて州が対策を強化しているところなので、
+諦めて自宅にいることにしました。&lt;/p>
+&lt;p>代わりにマリオカート・ライブでも買って遊ぶ方向で。&lt;/p></description></item><item><title>ゼルダの伝説 Breath of the Wild</title><link>https://blog2.issei.org/2021/01/26/zelda-bow/</link><pubDate>Tue, 26 Jan 2021 22:14:17 +0100</pubDate><guid>https://blog2.issei.org/2021/01/26/zelda-bow/</guid><description>&lt;p>冬休み明けからがっつり「ゼルダの伝説 Breath of the Wild」を遊んで、
+ようやくクリアしました。
+いやー、楽しかった。&lt;/p>
+&lt;p>ゲームにこれだけ時間をつぎ込んだのは久しぶりです。&lt;/p></description></item><item><title>骨折治療: 抜糸</title><link>https://blog2.issei.org/2020/12/08/faden-entfernung/</link><pubDate>Tue, 08 Dec 2020 13:00:41 +0100</pubDate><guid>https://blog2.issei.org/2020/12/08/faden-entfernung/</guid><description>&lt;p>&lt;a href="https://blog2.issei.org/2020/11/27/fraktur/">先日&lt;/a> の抜釘手術から十日経過したので、
+手術創を縫合していた糸を抜いてもらってきました。&lt;/p>
+&lt;p>経過は良好。
+数日たったら入浴可、
+運動は現時点ですでに制約なしとのこと。
+整形外科医の先生から「今年の冬もスキーするの？　骨折しないように気をつけてね」とのお言葉をもらって帰宅。&lt;/p></description></item><item><title>ブログからコメントを送れるようにしました</title><link>https://blog2.issei.org/2020/12/08/comment/</link><pubDate>Tue, 08 Dec 2020 00:33:37 +0100</pubDate><guid>https://blog2.issei.org/2020/12/08/comment/</guid><description>&lt;p>昔はブログを書いているとトラックバックで反応がありましたが、
+いまどきブログを書いている人はほとんどいないと思うので、
+ポストの下にメールフォームを設置してみました。&lt;/p>
+&lt;p>感想などあれば、Twitter で反応するぐらいのノリで気軽に送ってください。
+なお送ったコメントは私にメールで届くだけで、
+ブログ上には表示されません。&lt;/p>
+&lt;h2 id="実現方法">実現方法&lt;/h2>
+&lt;p>バックエンドには &lt;a href="https://getform.io/">getform&lt;/a> の無料プラン（５０通／月まで）を、
+スパム対策として Google の &lt;a href="https://www.google.com/recaptcha/about/">reCaptcha&lt;/a> と組み合わせて使っています。&lt;/p>
+&lt;p>getform は基本的にはフォームを設置して、
+送信先を getform にするだけで使えます（&lt;a href="https://github.com/isseis/blog-hugo/commit/ac50a42d9a99ae4f6712f60168d01362de893680">変更内容&lt;/a>）。
+getform 側でメール転送先をしておけばポストされた内容がメールで届きますし、
+&lt;a href="https://zapier.com/">Zapier&lt;/a> と連携させると Slack など他のサービスに通知を送ることも可能です。&lt;/p>
+&lt;p>上の変更内容には javascript コードも含まれていますが、
+これは「コメントを送る」ボタンがクリックされたタイミングで reCaptcha の API を呼び出して、
+ボット判定しているためです。
+getform が標準で提供している SPAM フィルタで十分ならば、
+一行もコードを書く必要はありません。&lt;/p>
+&lt;h2 id="裏話">裏話&lt;/h2>
+&lt;p>サイトジェネレーターとして先日まで &lt;a href="https://jekyllrb.com/">jekyll&lt;/a> を使っていましたが、
+jekyll は少しコードが入り組んでいて追いにくいのと、
+個人的に jekyll を実装するのに使われているプログラミング言語 Ruby より Go 言語のほうが慣れているので、 Go 言語で書かれた &lt;a href="https://gohugo.io/">hugo&lt;/a> に切り替えました。&lt;/p>
+&lt;p>私は Web フロントエンド開発は仕事で関わったことがないので、
+javascript や CSS まわりの最近の事情はよく分かっていないです。
+とはいえ、
+さすがに今どき &lt;code>document.onload = function() {...} &lt;/code> などとベタ書きするのもどうかと思ったので、
+少し &lt;a href="https://jquery.com/">jQuery&lt;/a> を調べて使ってみました。
+リファレンス読んでいくつか小さなコードを書いただけですが、
+Javascript を書くときに面倒な部分が、
+かなり簡略化されます。
+これは良い。&lt;/p>
+&lt;p>あとスタイルファイルは A Day in the Life の&lt;a href="https://secon.dev/entry/2020/09/09/184000/">記事&lt;/a> を参考にしました。
+リファレンスを読みつつ、
+Chrome の開発者向けツールを使って CSS プロパティを変更して、
+影響を逐次理解。
+Web だとスタイルを設定する方法がいろいろあるため、
+最終的にどの設定が効いているのかコードを読んでも良く分からないことがありますが、
+開発者向けツールを使うと一目瞭然。
+裏で非同期で通信している内容もキャプチャできる。
+便利。&lt;/p></description></item><item><title>骨折治療: 抜釘</title><link>https://blog2.issei.org/2020/11/27/fraktur/</link><pubDate>Fri, 27 Nov 2020 00:22:16 +0100</pubDate><guid>https://blog2.issei.org/2020/11/27/fraktur/</guid><description>&lt;p>今春、
+スキー中に転倒して足首を捻った折に内踝を骨折。
+治療のため、
+鋼線を入れて固定していましたが、
+無事に骨が成長して隙間が埋まったので、
+入れていた鋼線を抜いてきました。&lt;/p>
+&lt;p>鋼線を入れる手術は三泊四日でしたが、
+抜釘は日帰り。
+午後二時過ぎに受付、
+全身麻酔で手術を行い、
+午後六時には帰宅。&lt;/p>
+&lt;p>なお麻酔覚醒後二四時間は、
+一人で出歩くこと（公共交通機関の利用を含む）が禁止で、
+法的にも契約能力無しとのこと。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/11/Fraktur/Roentgenfoto.jpg" data-zoomable="true"alt="レントゲン写真"/>&lt;span class="medium-zoom-caption">レントゲン写真&lt;/span>&lt;/div>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/11/Fraktur/Draete.jpg" data-zoomable="true"alt="キルシュナー鋼線"/>&lt;span class="medium-zoom-caption">キルシュナー鋼線&lt;/span>&lt;/div>
+&lt;h2 id="保険">保険&lt;/h2>
+&lt;p>日本だと従業員の怪我は、通院・仕事中は労災保険、
+それ以外は健康保険が適用になりますが、
+スイスではすべて会社負担の傷害保険 (Unfallversicherung, UVG) が適用になります。
+日本の労災と同様、
+自己負担はゼロです。&lt;/p>
+&lt;p>なお折れた骨を元の位置に戻して鋼線で固定するのは、
+手術費・入院（個室）で合計約 15,000 SFr（約170万円）でした。
+抜釘の方は請求書が来ていないので不明。&lt;/p>
+&lt;p>以前、
+日本で鎖骨遠位端を折って同じように鋼線を入れたことがあるのですが、
+あのときは手術・入院（大部屋）で合計36万円（自己負担はその三割の11万円ほど）でした。
+個室と大部屋の違いはあるとはいえ、
+スイスの医療費は高いです。&lt;/p></description></item><item><title>写真の拡大をできるように</title><link>https://blog2.issei.org/2020/10/23/image-zoom/</link><pubDate>Fri, 23 Oct 2020 19:00:00 +0200</pubDate><guid>https://blog2.issei.org/2020/10/23/image-zoom/</guid><description>&lt;p>&lt;a href="https://portalshit.net/2020/10/16/medium-zoom-is-awesome?utm_source=feedburner&amp;amp;utm_medium=feed&amp;amp;utm_campaign=Feed%3A+portalshit+%28portal+shit%21%29">Medium Zoom を導入して写真を拡大できるようにした&lt;/a> を真似して、
+blog 中の写真をクリックで拡大縮小できるようにしてみました。&lt;/p>
+&lt;p>&lt;img src="https://blog2.issei.org/assets/2020/10/zoom/chrome-capture.gif" alt="拡大縮小スクリーンショット">&lt;/p>
+&lt;p>ソニーのコンデジ (DSC-RX1RM2) で撮影した写真は、
+拡大するとかなり細かいところまで写っていて驚きます。
+これとか 4K ディスプレイで全画面表示しても粗が見えない。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/schloss/Lenzburg_Altstadt.jpg" data-zoomable="true"alt="Lenzbureg Altstadt / レンツブルク旧市街"/>&lt;span class="medium-zoom-caption">Lenzbureg Altstadt / レンツブルク旧市街&lt;/span>&lt;/div></description></item><item><title>スイス古城巡り</title><link>https://blog2.issei.org/2020/10/19/schloss/</link><pubDate>Mon, 19 Oct 2020 20:00:00 +0200</pubDate><guid>https://blog2.issei.org/2020/10/19/schloss/</guid><description>&lt;p>チューリッヒ州の隣のアールガウ州には、
+中世に使われていた古城が数多く残っています。
+私が住んでいるチューリッヒ湖西側からだと片道30分から一時間程度と日帰りで訪れるのにちょうど良い距離なので、
+二週続けてハルヴィル（Hallwyl）とレンツブルク（Lenzburg）の城に行ってきました。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/schloss/Schloss_Lenzburg_Eingang.jpg" data-zoomable="true"alt="Eingang des Schlosses Lenzburgs / レンツブルク城入口"/>&lt;span class="medium-zoom-caption">Eingang des Schlosses Lenzburgs / レンツブルク城入口&lt;/span>&lt;/div>
+&lt;p>スイスは天気が良ければ屋外で過ごせる場所が数多くありますが、
+新型コロナウイルスが蔓延している状況下で天気が不安定となると出かける先を選ぶのが難しい。
+ハルヴィルやレンツブルクの城は博物館になっていますがあまり混雑しておらず、
+周囲にハイキングコースや旧市街もあるので、
+天気を見ながら臨機応変に対応できます。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/schloss/Lenzburg_Altstadt.jpg" data-zoomable="true"alt="Lenzbureg Altstadt / レンツブルク旧市街"/>&lt;span class="medium-zoom-caption">Lenzbureg Altstadt / レンツブルク旧市街&lt;/span>&lt;/div>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/schloss/Hallwilersee.jpg" data-zoomable="true"alt="Hallwilersee / ハルヴィラー湖"/>&lt;span class="medium-zoom-caption">Hallwilersee / ハルヴィラー湖&lt;/span>&lt;/div>
+&lt;p>戦争の経過などの展示を見ていると、
+地名に行ったことがある場所や馴染みのものが多く、
+地形や布陣が想像できることに気づきました。
+日本と比べるとスイスは狭いので実際に行ったことがある場所が多いのと、
+移動もハイキングやサイクリングなど身体を使っているので、
+距離感などが分かっているからですかね。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/schloss/Hotel_Krone.jpg" data-zoomable="true"alt="Hotel Krone in Altstadt Lenzburg / レンツブルク旧市街にある王冠ホテル"/>&lt;span class="medium-zoom-caption">Hotel Krone in Altstadt Lenzburg / レンツブルク旧市街にある王冠ホテル&lt;/span>&lt;/div>
+&lt;p>いずれのお城でも子供向けの小規模なイベントを開催していました。
+ハルヴィル城ではスタンプを使ったハンドバッグペインティングと伝統的な弓を使った射的、
+レンツブルク城では演劇や画用紙や飾りを使った王冠作りなど。&lt;/p></description></item><item><title>デスクトップ環境（物理）見直し</title><link>https://blog2.issei.org/2020/10/09/verbesserung_des_desktop_umgebung/</link><pubDate>Fri, 09 Oct 2020 14:01:00 +0200</pubDate><guid>https://blog2.issei.org/2020/10/09/verbesserung_des_desktop_umgebung/</guid><description>&lt;p>自宅で仕事をするようになって机の上が混雑してきたので、
+会社から出た予算を使って整理しました。&lt;/p>
+&lt;ul>
+&lt;li>ディスプレイをスタンドで上に立てていたのをやめ、
+モニターアーム &lt;a href="https://www.ergotron.com/ja-jp/%E8%A3%BD%E5%93%81/%E8%A3%BD%E5%93%81%E8%A9%B3%E7%B4%B0/45-475">Ergotron HX デスクモニターアーム&lt;/a> で机の端から伸ばすように。&lt;/li>
+&lt;li>ミーティング用のスピーカーフォン &lt;a href="https://sound-solution.yamaha.com/products/uc/yvc-330/index">Yamaha YVC-330&lt;/a> を設置。&lt;/li>
+&lt;li>キーボードを USB 接続の Happy Hacking Keyboard Professional （初代）から、
+無線接続できる &lt;a href="https://happyhackingkb.com/jp/products/hybrid_types/">Happy Hacking Keyboard Professional HYBRID Type-S&lt;/a> に置き換え。&lt;/li>
+&lt;/ul>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/09/desktop.jpg" data-zoomable="true"alt="Umgebung auf dem Tisch / デスクトップ環境"/>&lt;span class="medium-zoom-caption">Umgebung auf dem Tisch / デスクトップ環境&lt;/span>&lt;/div>
+&lt;p>ディスプレイを机に乗せてから、
+配線がごちゃごちゃしていたのと、
+読み書きするのに使うスペースが狭くなり、
+ディスプレの裏に隠れてしまった書籍にアクセスするのが面倒になっていましたが、
+これで解決しました。&lt;/p>
+&lt;p>ディスプレイを僅かな力で動かすことができ、
+ディスプレイを使わないときには簡単に机の外まで移動できるので、
+気軽に背後のものにアクセスしたり、
+机の上に作業スペースを作れます。&lt;/p>
+&lt;h2 id="ergotron-hx-デスクモニターアーム">&lt;a href="https://www.ergotron.com/ja-jp/%E8%A3%BD%E5%93%81/%E8%A3%BD%E5%93%81%E8%A9%B3%E7%B4%B0/45-475">Ergotron HX デスクモニターアーム&lt;/a>&lt;/h2>
+&lt;p>工具不要かつ軽い力で簡単に位置を変えられる一方で、
+使っている最中に位置がズレてくるようなことがなく安定しています。&lt;/p>
+&lt;p>アームに沿ってケーブルを束ねられるので、
+位置を変えるときにケーブルが変に伸びたり絡まったりせず快適。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/09/arm.jpg" data-zoomable="true"alt="Ergoton HX Monitor Arm"/>&lt;span class="medium-zoom-caption">Ergoton HX Monitor Arm&lt;/span>&lt;/div>
+&lt;p>私は DELL の 30 インチディスプレイを使っているのですが、
+想定しているディスプレイはもう少し重い物のようで裏のバネが強く、
+ディスプレイを動かす際に意図せず跳ね上げる（チルトする）形になりやすいです。&lt;/p>
+&lt;p>調整ネジでチルト補助のバネの力を最小にして、
+あとはディスプレイの上半分を持って移動するように気をつけています。&lt;/p>
+&lt;h2 id="yamaha-yvc-330">&lt;a href="https://sound-solution.yamaha.com/products/uc/yvc-330/index">Yamaha YVC-330&lt;/a>&lt;/h2>
+&lt;p>四〜六人程度の小規模会議用スピーカーフォンということで、
+一人で使うには少し大きいです。&lt;/p>
+&lt;p>ただ、これより小型のモデルにはない&lt;/p>
+&lt;ul>
+&lt;li>一メートル以上離れた場所の音を抑制する&lt;/li>
+&lt;li>マイクを自動でミュートする&lt;/li>
+&lt;/ul>
+&lt;p>機能が便利。
+子供が隣の部屋で騒いでいたり、
+ミーティング中にキーボードで入力しても、
+ミーティング進行の邪魔にならないので。&lt;/p>
+&lt;h2 id="happy-hacking-keyboard-professional-hybrid-type-s">&lt;a href="https://happyhackingkb.com/jp/products/hybrid_types/">Happy Hacking Keyboard Professional HYBRID Type-S&lt;/a>&lt;/h2>
+&lt;p>Happy Hacking Keyboard の Type-S バージョンを使うのは初めてですが、
+非常に静かですね。
+非 Type-S バージョンの方が「キーを叩いた」実感はあるので、
+どちらが良いかは好みの問題。&lt;/p>
+&lt;p>なお Chromebook では問題なく使えましたが、
+仕事用の Linux マシンで GUI ツールを使ってペアリングを試みたところ、
+認証に失敗してうまく接続できませんでした。&lt;/p>
+&lt;p>GUI ツールを使うのをやめて、
+コマンドラインから bluetoothctl を使ってペアリングを開始したところパスキーが表示され、
+これをキーボードから入力することで無事にペアリングが完了。&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ bluetoothctl
+&lt;span style="color:#75715e"># power on&lt;/span>
+&lt;span style="color:#75715e"># agent on&lt;/span>
+&lt;span style="color:#75715e"># default-agent&lt;/span>
+&lt;span style="color:#75715e"># scan on&lt;/span>
+&lt;span style="color:#75715e"># pair XX:XX:XX:XX:XX:XX # キーボードの物理アドレス&lt;/span>
+&lt;span style="color:#f92672">[&lt;/span>agent&lt;span style="color:#f92672">]&lt;/span> Passkey: &lt;span style="color:#ae81ff">123456&lt;/span> &lt;span style="color:#75715e"># 表示されたパスキーを入力&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Stöckli スキー工場見学</title><link>https://blog2.issei.org/2020/10/08/st%C3%B6ckli/</link><pubDate>Thu, 08 Oct 2020 22:43:00 +0200</pubDate><guid>https://blog2.issei.org/2020/10/08/st%C3%B6ckli/</guid><description>&lt;p>子供の秋休みを利用して、
+スイスのスキーメーカー Stöckli（ストックリー）の工場見学に行ってきました。&lt;/p>
+&lt;p>参考： &lt;a href="https://www.stoeckli.ch/chde/events/fuehrung/manufakturfuehrung">Öffentliche Führungen Stöckli Ski-Manufaktur&lt;/a>&lt;/p>
+&lt;p>工場はルツェルン州の郊外にあるマルタースの町にあり、
+ここで Stöckli が販売する年間約60,000セットのスキーほぼ全品が生産されているとのこと。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/08/ski_oberflaechen.jpg" data-zoomable="true"alt="Materialien der Ski Oberflächen / スキー表面素材"/>&lt;span class="medium-zoom-caption">Materialien der Ski Oberflächen / スキー表面素材&lt;/span>&lt;/div>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/08/arbeiter.jpg" data-zoomable="true"alt="Zusammenstellung / スキー組み立て"/>&lt;span class="medium-zoom-caption">Zusammenstellung / スキー組み立て&lt;/span>&lt;/div>
+&lt;p>素材の切り出しなどの工程は自動化されていますが、
+切り出した素材を重ね合わせて張り合わせたり、
+完成したスキーを検査するのは人間が行っています。&lt;/p>
+&lt;p>Stöckli のスキーは木の板をメタルプレートやグラスファイバーなどで挟んだサンドイッチ構造ですが、
+このメタルプレートにはスキー板の種類によって異なるパターンの切れ目が入れてあります。
+切れ目を入れた状態のメタルプレートを触る機会があり、
+形によって全然特性が異なるんだなと実感しました。&lt;/p>
+&lt;p>たとえばスキー板の長い方向に沿って波型に切れ目を入れると、
+左右で段差が付くような形　＿│￣ には簡単に変形するのに、
+真ん中で折れて ＼／ という形にはなりにくい。&lt;/p>
+&lt;h2 id="hammer-highway-grillhttpswwwhammer-highway-grillch">&lt;a href="https://www.hammer-highway-grill.ch/">Hammer Highway Grill&lt;/a>&lt;/h2>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/08/hamburger.jpg" data-zoomable="true"alt="Highway Burger"/>&lt;span class="medium-zoom-caption">Highway Burger&lt;/span>&lt;/div>
+&lt;p>工場から帰宅途中の道でみかけたハンバーガー店で夕食。
+平日夕方にも関わらず賑わっていて、
+なかなか美味しかったです。&lt;/p></description></item><item><title>ラッパーズヴィールの木橋</title><link>https://blog2.issei.org/2020/10/03/rapperswil_holtzbruecke/</link><pubDate>Sat, 03 Oct 2020 16:52:00 +0200</pubDate><guid>https://blog2.issei.org/2020/10/03/rapperswil_holtzbruecke/</guid><description>&lt;p>チューリッヒ湖の両岸が最も近くなる Rapperswil と Hurden の間には、
+自動車・電車用の近代的な橋と並行して、
+歩行者用の木橋が掛けられています。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/10/03/Rapperswill_holzbr%c3%bccke.jpg" data-zoomable="true"alt="Holzbrücke / 木橋"/>&lt;span class="medium-zoom-caption">Holzbrücke / 木橋&lt;/span>&lt;/div>
+&lt;p>夕方からでかけて木橋を散歩、
+旧市街の洋菓子屋さんでケーキを食べて帰宅。&lt;/p></description></item><item><title>小学校の学習目標到達度テスト</title><link>https://blog2.issei.org/2020/09/28/lernzielkontrolle/</link><pubDate>Mon, 28 Sep 2020 22:42:01 +0200</pubDate><guid>https://blog2.issei.org/2020/09/28/lernzielkontrolle/</guid><description>&lt;p>チューリッヒでは夏休み明けから新学年が始まりましたが、
+来週から二週間の秋休みに入ります。&lt;/p>
+&lt;p>長期休暇前には学習目標に達しているかどうかを調べる Lernzielkontrolle という試験があるのですが、
+目標点に達していないと追試になります。&lt;/p>
+&lt;p>小学三年生の長男はドイツ語が不合格でした。
+そんなにドイツ語苦手だったかなと思って問題を見たら、
+「文章中の名詞に丸をつける」という課題で、
+話してみたら人名などの固有名詞が「名詞」に含まれることを理解していなかったことが判明。&lt;/p>
+&lt;p>再試験は満点でした。一安心。&lt;/p>
+&lt;p>In Zürich begann Schuljahr nach den Sommerferien und wir befinden uns schon kurz vor den Herbstferien, die ab nächste Woche für zwei Wochen dauern.&lt;/p>
+&lt;p>Vor den Ferien wird die Lernzielkontrolle durchgeführt.
+Wenn man die Zielpunktzahl bei der Prüfung nicht erreichen kann, muss man den Test wiederholen.&lt;/p>
+&lt;p>Mein älterer Sohn in der 3. Klasse fiel die Prüfung von Deutsch durch.
+Ich hatte nicht gedacht, dass ihm Deutsch so schwerfiel, da las ich die Prüfungaufgabe mit him zusammen.
+Die Aufgabe lautet, alle Nomina im Text einzukreisen.
+Nach ein paar Minuten hat es sich herausgestellt, dass er missverstand hatte, dass Eigennamen wie Vornamen nicht zu Nomina gehören.&lt;/p>
+&lt;p>Er bekam bei der Nachprüfung die volle Punktzahl, was mich erleichtert hat.&lt;/p></description></item><item><title>散歩</title><link>https://blog2.issei.org/2020/09/27/spaziergang/</link><pubDate>Sun, 27 Sep 2020 17:58:05 +0200</pubDate><guid>https://blog2.issei.org/2020/09/27/spaziergang/</guid><description>&lt;p>今週末は二日とも天気が優れず。
+雨が降っていない時間帯に近所を散歩してきましたが、
+すでに冬の陽気ですね。
+しっかりジャケットを着込まないと寒いです。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets//2020/09/27/Hortensie.jpg" data-zoomable="true"alt="紫陽花 / Hortensie"/>&lt;span class="medium-zoom-caption">紫陽花 / Hortensie&lt;/span>&lt;/div>
+&lt;p>日本だと紫陽花は梅雨時の花ですが、
+スイスだと冬以外はずっと見かけます。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/09/27/Kirche.jpg" data-zoomable="true"alt="鐘楼 / Glockentürm"/>&lt;span class="medium-zoom-caption">鐘楼 / Glockentürm&lt;/span>&lt;/div>
+&lt;p>An diesem Wochenende war das Wetter leider schlecht.
+Als es nicht regnete, ging ich in meiner Nachbarschaft spazieren.
+Es war schon kalt wie Winter, also sollte man eine warme Jacke anziehen.&lt;/p>
+&lt;p>Während Hortensien in der Regenzeit in Japan blühen, blühen sie hier in der Schweiz ständig außerhalb Winters.&lt;/p></description></item><item><title>Lindt: Home of Chocolate</title><link>https://blog2.issei.org/2020/09/20/lindt-home-of-chocolate/</link><pubDate>Sun, 20 Sep 2020 23:43:19 +0200</pubDate><guid>https://blog2.issei.org/2020/09/20/lindt-home-of-chocolate/</guid><description>&lt;p>スイスのチョコレートブランド「Lindt リンツ」の本社工場が近所にあるのですが、
+そこでチョコレートの製法や歴史を扱う博物館 &lt;a href="https://www.lindt-home-of-chocolate.com/de/">Lindt : Home of Chocolate&lt;/a> がオープンしました。&lt;/p>
+&lt;p>展示の仕方が今風で、
+プロジェクションマッピングを多用。
+小学生の子供も飽きずに最後まで見ていました。&lt;/p>
+&lt;p>最後に併設のカフェで食事して、
+チョコレートを買って帰宅。
+定番の板チョコやキャンディー状のチョコレート以外に生チョコレートも売っていたので買ってみましたが、
+これは &lt;a href="https://www.laderach.com/">Läderach&lt;/a> の方が好み。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/09/lindt-home-of-chocolate/chocolate.jpg" data-zoomable="true"alt="リンツチョコレート"/>&lt;/div></description></item><item><title>マウンテンバイキング</title><link>https://blog2.issei.org/2020/09/18/mtb/</link><pubDate>Fri, 18 Sep 2020 21:43:47 +0200</pubDate><guid>https://blog2.issei.org/2020/09/18/mtb/</guid><description>&lt;p>チューリッヒ市から南に伸びるアルビス山脈　(Albiskette) を南に下り、
+川を渡って高速道路沿いの山道で帰ってくるコースを走ってきました。&lt;/p>
+&lt;p>初めてアルビス山脈の尾根を走ったのですが、
+木が多くて遠くまで見晴らせる場所は少なかったです。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets//2020/09/18/Buegeln.jpg" data-zoomable="true"/>&lt;/div>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/09/18/Albiskette.jpg" data-zoomable="true"/>&lt;/div>
+&lt;p>二つの山の間にある &lt;a href="https://goo.gl/maps/G22DjSZBsymeapbG9">Hirzel&lt;/a> の村は、
+牛や羊も放牧されていて長閑な雰囲気でした。
+散歩しても気持ちよさそう。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets//2020/09/18/Haus_auf_der_Wiese.jpg" data-zoomable="true"alt="Hirzen の一軒家"/>&lt;span class="medium-zoom-caption">Hirzen の一軒家&lt;/span>&lt;/div>
+&lt;h2 id="xxx-am-albis">XXX am Albis&lt;/h2>
+&lt;p>アルビス山脈の周りには、
+名前に am Albis とつく町がいくつかあります。&lt;/p>
+&lt;ul>
+&lt;li>Wettswil am Albis&lt;/li>
+&lt;li>Affoltern am Albis&lt;/li>
+&lt;li>Laugnau am Albis&lt;/li>
+&lt;li>Hausen am Albis&lt;/li>
+&lt;li>Kappel am Albis&lt;/li>
+&lt;/ul>
+&lt;p>町の名前は重複することもあるので、
+「アルビス山脈の〜町」とつけて区別しているんでしょうね。&lt;/p>
+&lt;p>ちなみに Langnau と名がつく町だと、他にも&lt;/p>
+&lt;ul>
+&lt;li>Langnau bei Reiden&lt;/li>
+&lt;li>Laugnau im Emmental&lt;/li>
+&lt;/ul>
+&lt;p>があります。
+後者は穴が空いたチーズとして有名な &lt;a href="https://www.meg-snow.com/cheeseclub/knowledge/jiten/term/emmental/">エメンタールチーズ&lt;/a> の産地。&lt;/p></description></item><item><title>長い週末 (Knabenschiessen)</title><link>https://blog2.issei.org/2020/09/14/knabenschiessen/</link><pubDate>Mon, 14 Sep 2020 21:07:30 +0200</pubDate><guid>https://blog2.issei.org/2020/09/14/knabenschiessen/</guid><description>&lt;p>チューリッヒ州では、
+9月14日（月）は少年射撃大会 (Knabenshiessen) で学校がお休みなので、
+子どもたちは三連休。
+今年は新型コロナウイルスの影響で大会や関連イベントがキャンセルとなったので、
+一日は Hasliberg までマウンテンバイク＆ハイキングに行き、
+もう一日は遊園地 &lt;a href="https://connyland.ch/">Conny Land&lt;/a> で遊んできました。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/09/Knabenschiessen/Lungernersee.jpg" data-zoomable="true"alt="Lungernersee"/>&lt;span class="medium-zoom-caption">Lungernersee&lt;/span>&lt;/div>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/09/Knabenschiessen/Kaeserstatt.jpg" data-zoomable="true"alt="Auf dem Weg nach Käserstatt"/>&lt;span class="medium-zoom-caption">Auf dem Weg nach Käserstatt&lt;/span>&lt;/div>
+&lt;p>なお Knabenschiessen は17世紀から続く祭典なので当時の社会情勢を反映して「少年」(Knaben)と名前がついていますが、
+今は性別を問わず参加可能で、
+昨年の優勝者は女の子です。&lt;/p></description></item><item><title>マウンテンバイキング</title><link>https://blog2.issei.org/2020/09/11/mtb/</link><pubDate>Fri, 11 Sep 2020 19:24:51 +0200</pubDate><guid>https://blog2.issei.org/2020/09/11/mtb/</guid><description>&lt;p>天気が良かったので、
+夕方からマウンテンバイクでいつものコースを一周。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/09/11/Waldweiher.jpg" data-zoomable="true"alt="Waldweiher湖"/>&lt;span class="medium-zoom-caption">Waldweiher湖&lt;/span>&lt;/div>
+&lt;p>チューリッヒ湖の西側、
+Oberrieden から Horgen にかけての高速道路沿いの山中に、
+自転車一車線分のシングルトラックが続いています。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/09/11/IMG_20200911_163642.jpg" data-zoomable="true"/>&lt;/div>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/09/11/IMG_20200911_165227.jpg" data-zoomable="true"/>&lt;/div>
+&lt;h2 id="timber-timber-bell">timber! Timber Bell&lt;/h2>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets/2020/09/11/timber-timber-bell-fahrradglocke.jpg" data-zoomable="true"style="max-width: 200px"alt="timber! Timber Bell"/>&lt;/div>
+&lt;p>道には散歩している歩行者や犬もいるので、
+相手に気づいてもらえるようにベルを付けました。
+オン・オフを簡単に切り替えられるので、
+見晴らしの効く道に出たら音が出ないようにしてます。&lt;/p></description></item><item><title>散歩</title><link>https://blog2.issei.org/2020/09/09/stroll/</link><pubDate>Wed, 09 Sep 2020 12:39:10 +0200</pubDate><guid>https://blog2.issei.org/2020/09/09/stroll/</guid><description>&lt;p>風邪が治まってきたので、
+久しぶりに外出して、
+近所の森を散歩。
+すっかり秋の気配。&lt;/p>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets//2020/09/android11-release/20200909_100051.jpg" data-zoomable="true"alt="キノコ / Pilz"/>&lt;/div>
+&lt;div style="position: relative; margin-bottom: 2em;">
+&lt;img src="https://blog2.issei.org/assets//2020/09/android11-release/20200909_104707.jpg" data-zoomable="true"alt="森の道"/>&lt;/div></description></item></channel></rss>
